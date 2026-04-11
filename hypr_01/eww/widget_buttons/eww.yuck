@@ -1,0 +1,87 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;---------------def_widgets---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwidget app-menu []
+    (box 
+        :orientation "v" 
+        :halign "center" 
+        :valign "end" 
+        :class "box-apps"
+        :spacing "10"
+        (button 
+            :onclick "pavucontrol &" 
+            :class "button-app"
+            :tooltip "Pavucontrol"
+            (label
+                :class "pavucontrol"
+                :text "h"
+            )
+        )
+        (button 
+            :onclick "blueman-manager &" 
+            :class "button-app"
+            :tooltip "Bluetooth"
+            (label
+                :class "bluetooth"
+                :text " "
+            )
+        )
+        (button 
+            ;; :onclick "bash ~/.config/hypr/eww/widget_buttons/scripts/open_metric3.sh" 
+            :class "button-app"
+            ;; :tooltip "Metric3"
+            (label
+                :class "machine"
+                :text "b"
+            )
+        )
+    )
+)
+
+
+(defwidget power-menu []
+    (box 
+        :orientation "v" 
+        :halign "center" 
+        :valign "end" 
+        :class "box-power"
+        :spacing "10"
+        (button :onclick "bash ~/.config/hypr/eww/widget_buttons/scripts/open_power_menu.sh" 
+            :class "button-power"
+            :tooltip "power menu"
+            (label
+                :class "button_power_menu"
+                :text " "
+            )
+        )
+    )
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;-------------------def_var---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwindow bar-window 
+    :monitor 0 
+    :class "bar-window"
+    :stacking "bg" 
+    :geometry 
+    (geometry 
+        :x "2%" 
+        :y "30px" 
+        :width "5%" 
+        :height "30px"
+        :anchor "center right"
+        ;; :anchor "bottom left"
+    )
+    (box
+        :orientation "v" 
+        :spacing "20"           ;;45
+        :space-evenly "false"   ;;espacio estre widget valor buleano: true ó false
+        (app-menu)
+        (power-menu)
+    )
+)
+

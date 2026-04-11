@@ -1,0 +1,47 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;---------------def_widgets---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(defwidget ICON-ADJUTORA []
+    (button
+        :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu open bar-window &" 
+        :class "glass_button"
+        :tooltip "Power menu"
+        (box
+            :class "gif-container_00"
+            (box 
+                :class "gif-container_01"
+                (image
+                    :path   "adjutora_gif.gif"
+                ) 
+            )
+        )
+    )
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;-----------------def_widget--------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwindow adjutora-icon-glass
+    :monitor 0 
+    :class "bar-window"
+    :stacking "fg" 
+    :geometry 
+    (geometry 
+        :x "3%" 
+        :y "10px" 
+        :width "5%" 
+        :height "30px"
+        :anchor "top center"
+    )
+    (box
+        :orientation "v" 
+        :spacing "10"           ;;45
+        ;:space-evenly "false"   ;;espacio estre widget valor buleano: true ó false
+        (ICON-ADJUTORA)
+    )
+)
+

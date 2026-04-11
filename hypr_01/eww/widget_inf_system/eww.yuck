@@ -1,0 +1,113 @@
+(defpoll var_desktops :interval "2s"  "bash ~/.config/hypr/eww/widget_inf_system/scripts/workspaces.sh")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;---------------def_widgets---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;----------------Info_system--------------------;;
+
+(defwidget RAM_INF []
+    (box
+        :class "box-inf-system_02"
+        :halign "center"
+        :space-evenly "false"            
+        (box
+            :class "glass_box"
+            :halign "center"
+            :hexpand "true"
+            :space-evenly "false"
+            (label
+                :class "ram-label" 
+                ;; :text "  ${round(EWW_RAM.used_mem_perc, 0)}%"
+                :text "  ${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} GB"
+            )
+        )
+    )
+)
+
+(defwidget BATTERY_INF []
+    (box
+        :class "box-inf-system_01"
+        :halign "center"
+        :space-evenly "false"
+        (box
+            :class "glass_box"
+            :halign "center"
+            :hexpand "true"
+            :space-evenly "false"
+            (label
+                :class "battery-label"
+                :text "${EWW_BATTERY['BAT0'].status == 'Charging' ? '󰂄' : EWW_BATTERY['BAT0'].status == 'Discharging' ? '󰂀' : EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' : EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃': EWW_BATTERY['BAT0'].status} ${EWW_BATTERY['BAT0'].capacity}%"
+            )
+        )
+    )
+)
+
+
+
+;;-----------------WorkSpaces--------------------;;
+
+(defwidget work-station []
+    (box
+        :class "desk-box_01"
+        :halign "center"
+        :space-evenly "false"            
+        (label
+            :class "desk-test"
+            :text "${var_desktops}"
+        )
+    )
+)
+
+;;-------------------Sepator--------------------;;
+
+(defwidget separator []
+    (box
+        (label
+            :class "separator-text"
+            :text   ""
+        )
+    )
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;-------------------def_var---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwindow widget_inf
+    :class "widget_inf"
+    :stacking "bg"
+    :monitor 0
+    :valign  "fill"
+    :geometry 
+    (geometry
+        :x "2%"  ;;2% 
+        :y "30px"
+        :width "12%"
+        :height "10px"
+        :anchor "bottom left"
+        ;; :anchor "top left"
+    )
+    (box
+        :orientation "v"
+        :halign "center"
+        :space-evenly "false"
+        :spacing "10"
+        (box
+            :orientation "h"
+            :halign "center"
+            :space-evenly "false"
+            :spacing "10"
+            (BATTERY_INF)
+            (separator)
+            (RAM_INF)
+            (separator)
+            (work-station)
+        )
+    )
+)
+
+

@@ -1,0 +1,96 @@
+.widget_inf {
+  background-color: rgba(15, 01, 19, 0); 
+  padding: 0px;
+}
+
+
+//////////////////////////////////
+////    widget_inf_system     ////
+//////////////////////////////////
+
+
+// Definir una variable de color
+$color_01: rgba(29, 29, 29, 0.2);  
+$color_02: rgba(231, 231, 231); 
+// $color_02: rgba(184, 184, 184); 
+
+.box-inf-system {
+  background-color: rgba(29, 29, 29, 0.7); 
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.box-inf-system_01 {
+  background-color: $color_01; 
+  border-radius: 10px;
+  padding: 0px;
+  min-width: 90px;
+}
+
+.box-inf-system_02 {
+  background-color: $color_01; 
+  border-radius: 10px;
+  padding: 0px;
+  min-width: 110px;
+}
+
+.glass_box {
+  background: rgba(255, 39, 23, 0);
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.battery-label {
+  font-size: 19px;
+  color: $color_02;
+  font-family: "Inconsolata NF";
+}
+
+.ram-label {
+  font-size: 17px;
+  color: $color_02;
+  font-family: "Inconsolata NF";
+}
+
+.CPU-inf {
+  font-size: 17px;
+  color: $color_02;
+  font-family: "Inconsolata NF";
+}
+
+.CPU-inf-temp {
+  font-size: 17px;
+  color: $color_02;
+  font-family: "Inconsolata NF";
+}
+
+
+//////////////////////////////////
+////-----View_workspaces------////
+//////////////////////////////////
+
+.desk-box_01 {
+  background-color: rgba(29, 29, 29, 0); 
+  padding: 0px;
+  border-radius: 10px; 
+  min-width: 150px;
+}
+
+.desk-test {
+  font-size: 17px;
+  color: rgba(29, 29, 29);
+  font-family: "Inconsolata NF";
+}
+
+
+//////////////////////////////////
+////-----View_Separator-------////
+//////////////////////////////////
+
+.separator-text {
+  font-size: 17px;
+  color: #B8B8B8;
+  font-family: "Inconsolata NF";
+}
+
+
