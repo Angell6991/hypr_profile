@@ -5,7 +5,7 @@
 sleep   1
 
 killall eww  
-killall mako 
+killall dunst 
 
 sleep   1
 
@@ -19,9 +19,9 @@ cp      -r      hypr_02/* ~/.config/hypr
 
 cp  starship_02.toml    ~/.config/starship.toml
 cp  fuzzel_02.ini       ~/.config/fuzzel/fuzzel.ini
-cp  config_mako_02      ~/.config/mako/config
+cp  dunstrc_02          ~/.config/dunst/dunstrc
 cp  kitty_02.conf       ~/.config/kitty/kitty.conf
-mako &
+dunst &
 
 
 hyprctl reload

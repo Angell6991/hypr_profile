@@ -5,7 +5,7 @@
 sleep   1
 
 killall eww  
-killall mako 
+killall dunst 
 
 sleep   1
 
@@ -25,9 +25,9 @@ cp      -r      hypr_01/* ~/.config/hypr
 
 cp  starship_01.toml    ~/.config/starship.toml
 cp  fuzzel_01.ini       ~/.config/fuzzel/fuzzel.ini
-cp  config_mako_01      ~/.config/mako/config
+cp  dunstrc_01          ~/.config/dunst/dunstrc
 cp  kitty_01.conf       ~/.config/kitty/kitty.conf
-mako &
+dunst &
 
 hyprctl reload
 hyprctl setcursor oreo_pink_cursors 24 
