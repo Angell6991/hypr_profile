@@ -1,100 +1,93 @@
 .bar-window{
   background-color: rgba(29, 29, 29, 0);
-  padding: 260px;
-  border-radius: 10px;
+  padding: 15px;
 }
 
-// Definir una variable de color
-$color_01: rgba(28, 27, 34, 0.9);  
-$color_02: rgba(255, 255, 231); 
+//////////////////////////////
+////Definir una variables ////
+//////////////////////////////
 
+////Definir una variables
+$color_01: rgba(238, 232, 170, 1); 
+$color_02: rgba(32, 54, 32, 1); 
+$font_size: 20px;
 
 //////////////////////////////
 ////      power_box       ////
 //////////////////////////////
-.box-power {
-  // background-color: rgba(0, 36, 36, 0.2); 
-  background-color: rgba(0, 36, 36, 0.4); 
-  padding: 30px;
-  border-radius: 10px;
-  border: 2px outset #002424;
+
+.box-main{
+  background-color: rgba(238, 232, 170, 0.3);
+  padding: 3px;
+  border-radius: 50px;
 }
 
-.box-glass {
-  background-color: rgba(29, 29, 29, 0);
-  padding: 0px;
-  border-radius: 10px;
+.box-up{
+  background-color: rgba(32, 54, 32, 1);
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: 0px 0px 5px rgba(32, 54, 32, 1);
 }
 
-.box-cancel {
-  background-color: rgba(29, 29, 29, 0.8);
-  padding: 10px;
-  border-radius: 10px;
+.box-down{
+  background-color: rgba(01, 260, 10, 0);
+  padding: 5px;
+  border-radius: 100px;
 }
+
 
 ////------config_butons---////
-.button-power {
-  background: $color_01;
-  // box-shadow: none;
-  border: 2px solid transparent;
-  border-color: #010101;
-  padding: 25;
-  font-size: 20px;
-  color: #00CCDE;
-  font-family: "Inconsolata NF";
-  border-radius: 10px;
-  border: 3px outset #1c1b22;
-}
-
-.button-cancel {
-  background: #161616;
-  // box-shadow: none;
-  border: none;
-  border-color: #010101;
+.button-power-01 {
+  // background: rgba(01, 260, 10, 0);
   padding: 15;
-  font-size: 20px;
-  color: #00CCDE;
-  font-family: "Inconsolata NF";
-  border-radius: 10px;
+  border-radius: 100px 100px 100px 100px;
+  &:active,
+  &:focus {
+    background-color: rgba(238, 232, 170, 0.2); 
+  }
 }
 
+.button-power-02 {
+  background: rgba(01, 260, 10, 0);
+  padding: 15;
+  border-radius: 100px 100px 100px 100px;
+  &:active,
+  &:focus {
+    background-color: rgba(32, 54, 32, 0.4);
+  }
+}
 
 ////---config_text_of_butons---////
 .close-secion{
-  font-size: 60px;
-  color: $color_02;
-  // color: #9821D0;
+  font-size: $font_size;
+  color: $color_01;
   font-family: "3270 Nerd Font";
-  // font-family: "Inconsolata NF";
   text-shadow: none;
 }
 
 .reboot{
-  font-size: 60px;
-  color: $color_02;
+  font-size: $font_size;
+  color: $color_01;
   font-family: "3270 Nerd Font";
-  // font-family: "Inconsolata NF";
   text-shadow: none;
 }
 
 .suspend{
-  font-size: 60px;
-  color: $color_02;
-  // color: #00CCDE;
+  font-size: $font_size;
+  color: $color_01;
   font-family: "3270 Nerd Font";
   text-shadow: none;
 }
 
 .poweroff{
-  font-size: 60px;
-  color: $color_02;
-  // color: #ff44a0;
+  font-size: $font_size;
+  color: $color_01;
   font-family: "3270 Nerd Font";
   text-shadow: none;
 }
 
 .cancel{
-  font-size: 60px;
+  font-size: $font_size;
   color: $color_02;
   font-family: "3270 Nerd Font";
   text-shadow: none;

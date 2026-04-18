@@ -8,7 +8,6 @@
        (label
             :class  "icon"
             :text "j"
-            ;; :text "󱚳 "
        ) 
     )
 )
@@ -24,8 +23,8 @@
     :stacking "fg" 
     :geometry 
     (geometry 
-        :x "2%" 
-        :y "30px" 
+        :x "1.1%" 
+        :y "15px" 
         :width "5%" 
         :height "30px"
         :anchor "bottom right"

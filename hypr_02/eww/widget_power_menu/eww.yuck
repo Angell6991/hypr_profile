@@ -2,16 +2,18 @@
 ;;---------------def_widgets---------------------;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defwidget power-menu []
-    (box 
-        :orientation "h" 
-        :halign "center" 
-        :valign "end" 
-        :class "box-power"
-        :spacing "30"
 
-        (button :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu/ kill && sleep 1 && poweroff" 
-            :class "button-power"
+(defwidget  BOX_UP []
+    (box
+        :orientation "v" 
+        :halign "center" 
+        :class "box-up"
+        :spacing "5"
+        :valign "end" 
+
+        (button 
+            :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu/ kill && sleep 1 && poweroff" 
+            :class "button-power-01"
             :tooltip "poweroff"
             (label 
                 :class "poweroff"
@@ -19,8 +21,9 @@
             )
         )
 
-        (button :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu/ kill && sleep 1 && hyprlock" 
-            :class "button-power"
+        (button 
+            :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu/ kill && sleep 1 && hyprlock" 
+            :class "button-power-01"
             :tooltip "lock"
             (label 
                 :class "suspend"
@@ -28,8 +31,9 @@
             )
         )
 
-        (button :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu kill && sleep 2 && hyprctl dispatch exit 0" 
-            :class "button-power"
+        (button 
+            :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu kill && sleep 2 && hyprctl dispatch exit 0" 
+            :class "button-power-01"
             :tooltip "close secion"
             (label
                 :class "close-secion"
@@ -37,27 +41,35 @@
             )
         )
 
-        (button :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu/ kill && sleep 1 && systemctl reboot" 
-            :class "button-power"
+        (button 
+            :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu/ kill && sleep 1 && systemctl reboot" 
+            :class "button-power-01"
             :tooltip "reboot"
             (label 
                 :class "reboot"
-                ;; :text " "  
                 :text " "  
-                ;; :text " "  
-                ;; :text " "  
             )
         )
 
-        (button :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu/ kill" 
-            :class "button-power"
-            :tooltip "reboot"
+    )
+)
+
+(defwidget  BOX_DOWN []
+    (box
+        :orientation "v" 
+        :halign "center" 
+        :class "box-down"
+        :spacing "10"
+        :valign "end" 
+        (button 
+            :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu/ kill" 
+            :class "button-power-02"
+            :tooltip "cancel"
             (label 
                 :class "cancel"
                 :text " "  
             )
         )
-
     )
 )
 
@@ -68,22 +80,26 @@
 
 (defwindow bar-window 
     :monitor 0 
-    :class "bar-window"
     :stacking "overlay" ;; "fg"
     :focusable "exclusive"
     :geometry
     (geometry 
-        :x "2%" 
-        :y "30px" 
-        :width "5%" 
-        :height "30px"
-        :anchor "center"
+        :x "0%" 
+        :y "0px" 
+        :width "0%" 
+        :height "0px"
+        :anchor "center right"
     )
     (box
-        :orientation "h" 
-        :spacing "20"
-        :space-evenly "false"  ;;espacio estre widget valor buleano: true ó false
-        (power-menu)
+        :class "bar-window"
+        (box
+            :orientation "v" 
+            :spacing "0"
+            :class "box-main"
+            :space-evenly "false"
+            (BOX_UP)
+            (BOX_DOWN)
+        )
     )
 )
 

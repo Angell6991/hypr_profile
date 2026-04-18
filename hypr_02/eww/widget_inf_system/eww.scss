@@ -1,51 +1,108 @@
-.widget_inf {
-  background-color: rgba(0, 36, 36, 0.2); 
-  padding: 4px;
-  border-radius: 6px;
-  // border: 5px double #1c1b22;
+.widget_inf{
+  background-color: rgba(29, 29, 29, 0);
+  padding: 0px 0px 0px 0px;
+  min-width: 0px;
+}
+
+//////////////////////////////
+////Definir una variables ////
+//////////////////////////////
+
+////Definir una variables
+$color_01: rgba(238, 232, 170, 1); 
+$color_02: rgba(32, 54, 32, 1); 
+$font_size: 20px;
+
+$color_main: rgba(238, 232, 170, 0.3);
+$color_box_up:  rgba(32, 54, 32, 1);
+$shadow_box_up: 0px 0px 5px rgba(32, 54, 32, 1);
+$color_box_down: rgba(01, 260, 10, 0);
+
+
+//////////////////////////////
+////    container_box     ////
+//////////////////////////////
+
+.box-main{
+  background-color: $color_main;
+  padding: 3px;
+  border-radius: 50px;
+}
+
+.box-end-left{
+  background-color: $color_box_down;
+  padding: 0px;
+  border-radius: 50px;
+  min-width: 280px;
+}
+
+.box-end-right{
+  background-color: $color_box_down;
+  padding: 0px;
+  border-radius: 50px;
+  min-width: 370px;
 }
 
 
-//////////////////////////////////
-////    widget_inf_system     ////
-//////////////////////////////////
+////-------box-up
 
-
-// Definir una variable de color
-$color_01: rgba(28, 27, 34, 0.8);  
-$color_02: rgba(255, 255, 231); 
-
-
-.box-inf-system_00 {
-  background: rgba(29, 29, 29, 0);
-  border-radius: 5px;
-  padding: 0px;
-}
-
-.box-inf-system_01 {
-  background-color: $color_01; 
-  border-radius: 5px;
-  padding: 0px;
+.box-battery{
+  background-color: $color_box_up; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
   min-width: 60px;
-  border: 5px outset #1c1b22;
 }
 
-.box-inf-system_02 {
-  background-color: $color_01; 
-  border-radius: 5px;
-  padding: 0px;
-  min-width: 90px;
-  border: 5px outset #1c1b22;
-}
-
-
-.box-inf-system_03 {
-  background-color: $color_01; 
-  border-radius: 5px;
-  padding: 0px;
+.box-cpu{
+  background-color: $color_box_up; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
   min-width: 130px;
-  border: 5px outset #1c1b22;
 }
+
+.box-day{
+  background-color: $color_box_up; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
+  min-width: 90px;
+}
+
+.box-adjutant{
+  background-color: $color_box_up; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
+  // min-width: 90px;
+}
+
+////-------box-down
+.box-ram{
+  background-color: $color_box_down;
+  padding: 5px;
+  border-radius: 100px;
+  min-width: 90px;
+}
+
+.box-calendar{
+  background-color: $color_box_down;
+  padding: 5px;
+  border-radius: 100px;
+  min-width: 110px;
+}
+
+.box-clock{
+  background-color: $color_box_down;
+  padding: 5px;
+  border-radius: 100px;
+  min-width: 60px;
+}
+
+// //////////////////////////////////
+// ////      inf_labels          ////
+// //////////////////////////////////
 
 .glass_button {
   background: rgba(29, 29, 29, 0);
@@ -57,16 +114,9 @@ $color_02: rgba(255, 255, 231);
   color: #00CCDE;
 }
 
-.glass_box {
-  background: rgba(255, 39, 23, 0);
-  border-radius: 5px;
-  padding: 1px;
-}
-
-
 .battery-label {
   font-size: 14px;
-  color: $color_02;
+  color: $color_01;
   font-family: "Inconsolata NF";
 }
 
@@ -78,7 +128,7 @@ $color_02: rgba(255, 255, 231);
 
 .CPU-label {
   font-size: 14px;
-  color: $color_02;
+  color: $color_01;
   font-family: "Inconsolata NF";
 }
 
@@ -90,7 +140,7 @@ $color_02: rgba(255, 255, 231);
 
 .day-label{
   font-size: 10px;
-  color: $color_02;
+  color: $color_01;
   font-family: "frank";
 }
 
@@ -100,46 +150,12 @@ $color_02: rgba(255, 255, 231);
   font-family: "frank";
 }
 
-.power-label {
-  font-size: 15px;
-  color: $color_02;
-  font-family: "3270 Nerd Font";
-  // font-family: "Inconsolata NF";
-}
-
-.app-label {
-  font-size: 15px;
-  color: $color_02;
-  font-family: "3270 Nerd Font";
-  // font-family: "Inconsolata NF";
-}
-
-
-//////////////////////////////////
-////-----View_Separator-------////
-//////////////////////////////////
-
-.separator-text {
-  font-size: 15px;
-  color: #e2e2e2;
-  font-family: "Inconsolata NF";
-}
-
-.separator-text-01 {
-  font-size: 18px;
-  color: #e2e2e2;
+.adjutant{
+  font-size: 20px;
+  color: $color_01;
   font-family: "starcraftt";
 }
 
 
-// - none — Sin borde.
-// - solid — Línea sólida (normal).
-// - dashed — Línea discontinua (rayada).
-// - dotted — Línea punteada.
-// - double — Doble línea (como en tu ejemplo).
-// - groove — Borde con efecto de ranura (con relieve).
-// - ridge — Borde con efecto de cresta (inverso a groove).
-// - inset — Borde en relieve hacia adentro (efecto hundido).
-// - outset — Borde en relieve hacia afuera (efecto sobresaliente).
 
 
