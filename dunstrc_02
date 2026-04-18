@@ -23,7 +23,7 @@
     progress_bar_corners = all
     progress_bar_frame_width = 2
     frame_width = 2
-    frame_color = "#d2d1d1ff"          ; surface0 - borde sutil en todo
+    frame_color = "#eee8aaff"          ; surface0 - borde sutil en todo
     separator_height = 2
     separator_color = "#45475aff"      ; surface1 - separador más visible
     corner_radius = 10                 ; más redondeado y moderno
@@ -61,24 +61,24 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#002424aa"           ; base con leve transparencia
-    foreground = "#d2d1d1"
-    highlight = "#d2d1d1"
-    frame_color = "#d2d1d1"
+    background = "#203620aa"           ; base con leve transparencia
+    foreground = "#eee8aa"
+    highlight = "#eee8aa"
+    frame_color = "#eee8aa"
     timeout = 5
 
 [urgency_normal]
-    background = "#002424aa"
-    foreground = "#d2d1d1"
-    highlight = "#d2d1d1"
-    frame_color = "#d2d1d1"
+    background = "#203620aa"
+    foreground = "#eee8aa"
+    highlight = "#eee8aa"
+    frame_color = "#eee8aa"
     timeout = 5
 
 [urgency_critical]
-    background = "#002424aa"
-    foreground = "#d2d1d1"           ; texto rojo suave
-    highlight = "#d2d1d1"
-    frame_color = "#d2d1d1"          ; mismo borde sutil
+    background = "#203620aa"
+    foreground = "#eee8aa"           ; texto rojo suave
+    highlight = "#eee8aa"
+    frame_color = "#eee8aa"          ; mismo borde sutil
     frame_width = 2                    ; borde más grueso para destacar
     timeout = 0
     progress_bar_color = "#f38ba8ff"   ; barra de progreso roja en críticas
