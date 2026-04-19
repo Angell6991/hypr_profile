@@ -109,7 +109,7 @@
         (button
             :onclick "gnome-calendar &" 
             :class "glass_button"
-            :tooltip "Calendar"
+            :tooltip "Calendar | ${formattime(EWW_TIME, '%d | %m | %Y')} |"
             (box
                 :halign "center"
                 :space-evenly "false"
