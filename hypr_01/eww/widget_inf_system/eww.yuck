@@ -8,6 +8,30 @@
 
 ;;----------------Info_system--------------------;;
 
+(defwidget RAM_BAR []
+    (box
+        :class "box-ram-bar"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (overlay
+                (circular-progress
+                    :class "ram-bar"
+                    :value "${ (round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)) * (100/(round(EWW_RAM.total_mem / (1024 * 1024 * 1024), 0)))}"
+                    :start-at 75
+                    :clockwise true
+                    :thickness 3
+
+                )
+                (label :class "ram-label-bar" :text " ")
+            )
+        )
+    )
+)
+
+
+
 (defwidget RAM_INF []
     (box
         :class "box-inf-system_02"
@@ -18,10 +42,11 @@
             :halign "center"
             :hexpand "true"
             :space-evenly "false"
+            :spacing "10"
+            (RAM_BAR)
             (label
                 :class "ram-label" 
-                ;; :text "  ${round(EWW_RAM.used_mem_perc, 0)}%"
-                :text "  ${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} GB"
+                :text "${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} GB"
             )
         )
     )
@@ -39,7 +64,12 @@
             :space-evenly "false"
             (label
                 :class "battery-label"
-                :text "${EWW_BATTERY['BAT0'].status == 'Charging' ? '󰂄' : EWW_BATTERY['BAT0'].status == 'Discharging' ? '󰂀' : EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' : EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃': EWW_BATTERY['BAT0'].status} ${EWW_BATTERY['BAT0'].capacity}%"
+                :text "${
+                    EWW_BATTERY['BAT0'].status == 'Charging' ? '󰂄' :
+                    EWW_BATTERY['BAT0'].status == 'Discharging' ? '󰂀' :
+                    EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' :
+                    EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃':
+                    EWW_BATTERY['BAT0'].status} ${EWW_BATTERY['BAT0'].capacity}%"
             )
         )
     )

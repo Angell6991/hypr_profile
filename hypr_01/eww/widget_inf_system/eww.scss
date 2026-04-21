@@ -94,3 +94,28 @@ $color_02: rgba(231, 231, 231);
 }
 
 
+
+//////////////////////////////////
+////      progress_bars       ////
+//////////////////////////////////
+
+.ram-bar  {
+  border-radius: 20px;
+  background: rgba(231, 231, 231, 0.2);
+  color: rgba(231, 231, 231, 1);
+}
+
+.box-ram-bar{
+  background-color: rgba(29, 29, 29, 0);
+  padding: 0px;
+  border-radius: 100px;
+  min-width: 20px;
+}
+
+.ram-label-bar {
+  font-size: 12px;
+  color: $color_02;
+  font-family: "Inconsolata NF";
+}
+
+

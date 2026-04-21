@@ -17,6 +17,8 @@ $color_box_up:  rgba(32, 54, 32, 1);
 $shadow_box_up: 0px 0px 3px rgba(32, 54, 32, 1);
 $color_box_down: rgba(01, 260, 10, 0);
 
+$color_ram_bar_up:rgba(32, 54, 32, 1); 
+$color_ram_bar_down:rgba(32, 54, 32, 0.4); 
 
 //////////////////////////////
 ////    container_box     ////
@@ -33,14 +35,14 @@ $color_box_down: rgba(01, 260, 10, 0);
   background-color: $color_box_down;
   padding: 0px;
   border-radius: 50px;
-  min-width: 280px;
+  min-width: 255px;
 }
 
 .box-end-right{
   background-color: $color_box_down;
   padding: 0px;
   border-radius: 50px;
-  min-width: 370px;
+  min-width: 325px;
 }
 
 
@@ -78,12 +80,28 @@ $color_box_down: rgba(01, 260, 10, 0);
   // min-width: 90px;
 }
 
+.box-icon-calendar{
+  background-color: $color_box_up; 
+  padding: 5px 5px 5px 10px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
+  // min-width: 15px;
+}
+
+
 ////-------box-down
 .box-ram{
   background-color: $color_box_down;
   padding: 5px;
   border-radius: 100px;
-  min-width: 90px;
+  min-width: 55px;
+}
+
+.box-ram-bar{
+  background-color: $color_box_down;
+  padding: 0px;
+  border-radius: 100px;
+  min-width: 50px;
 }
 
 .box-calendar{
@@ -99,6 +117,14 @@ $color_box_down: rgba(01, 260, 10, 0);
   border-radius: 100px;
   min-width: 60px;
 }
+
+.box-clock-bar{
+  background-color: $color_box_down;
+  padding: 0px;
+  border-radius: 100px;
+  min-width: 30px;
+}
+
 
 // //////////////////////////////////
 // ////      inf_labels          ////
@@ -123,6 +149,12 @@ $color_box_down: rgba(01, 260, 10, 0);
 .ram-label {
   font-size: 14px;
   color: $color_02;
+  font-family: "Inconsolata NF bold";
+}
+
+.ram-label-bar {
+  font-size: 14px;
+  color: $color_02;
   font-family: "Inconsolata NF";
 }
 
@@ -138,6 +170,12 @@ $color_box_down: rgba(01, 260, 10, 0);
   font-family: "frank";
 }
 
+.clock-label-bar {
+  font-size: 14px;
+  color: $color_02;
+  font-family: "Inconsolata NF";
+}
+
 .day-label{
   font-size: 10px;
   color: $color_01;
@@ -150,12 +188,32 @@ $color_box_down: rgba(01, 260, 10, 0);
   font-family: "frank";
 }
 
+.icon-label-calendar{
+  font-size: 19px;
+  color: $color_01;
+  font-family: "Inconsolata NF";
+}
+
 .adjutant{
   font-size: 20px;
   color: $color_01;
   font-family: "starcraftt";
 }
 
+//////////////////////////////////
+////      progress_bars       ////
+//////////////////////////////////
 
+.ram-bar  {
+  border-radius: 20px;
+  background: $color_ram_bar_down;
+  color: $color_ram_bar_up;
+}
+
+.clock-bar  {
+  border-radius: 20px;
+  background: $color_ram_bar_down;
+  color: $color_ram_bar_up;
+}
 
 

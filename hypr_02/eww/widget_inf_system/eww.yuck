@@ -20,18 +20,37 @@
     )
 )
 
-(defwidget RAM_INF []
+(defwidget RAM_BAR []
     (box
-        :class "box-ram"
+        :class "box-ram-bar"
         :space-evenly "false"
         :halign "center"
         (box
             :hexpand "true"
-            (label
-                :class "ram-label" 
-                ;; :text "  ${round(EWW_RAM.used_mem_perc, 0)}%"
-                :text "  ${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} GB"
+            (overlay
+                (circular-progress
+                    :class "ram-bar"
+                    :value "${ (round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)) * (100/(round(EWW_RAM.total_mem / (1024 * 1024 * 1024), 0)))}"
+                    :start-at 75
+                    :clockwise true
+                    :thickness 5
+
+                )
+                (label :class "ram-label-bar" :text " ")
             )
+        )
+    )
+)
+
+
+
+(defwidget RAM_INF []
+    (box
+        :class "box-ram"
+        :space-evenly "false"
+        (label
+            :class "ram-label" 
+            :text "${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} GB"
         )
     )
 )
@@ -45,7 +64,13 @@
             :hexpand "true"
             (label
                 :class "battery-label"
-                :text "${EWW_BATTERY['BAT0'].status == 'Charging' ? '󰂄' : EWW_BATTERY['BAT0'].status == 'Discharging' ? '󰂀' : EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' : EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃': EWW_BATTERY['BAT0'].status} ${EWW_BATTERY['BAT0'].capacity}%"
+                :text "${
+                    EWW_BATTERY['BAT0'].status == 'Charging' ? '󰂄' : 
+                    EWW_BATTERY['BAT0'].status == 'Discharging' ? '󰂀' : 
+                    EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' : 
+                    EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃': 
+                    EWW_BATTERY['BAT0'].status
+                    } ${EWW_BATTERY['BAT0'].capacity}%"
             )
         )
     )
@@ -61,6 +86,7 @@
         :halign "center"
         :spacing "0"
         (BATTERY_INF)
+        (RAM_BAR)
         (RAM_INF)
         (CPU_TEMP_INF)
     )
@@ -68,6 +94,23 @@
 
 
 ;;-----------------Info_day----------------------;;
+
+(defwidget ICON_CALENDAR []
+    (box
+        :class "box-icon-calendar"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "icon-label-calendar"
+                :text   "󰃭 "
+            )
+        )
+    )
+)
+
+
 
 (defwidget DAY []
     (box
@@ -114,6 +157,7 @@
                 :halign "center"
                 :space-evenly "false"
                 :spacing "0"
+                (ICON_CALENDAR)
                 (CALENDAR)
                 (DAY)
             )
@@ -165,6 +209,36 @@
     )
 )
 
+(defwidget CLOCK_BAR []
+    (box
+        :class "box-clock-bar"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (overlay
+                (circular-progress
+                    :class "clock-bar"
+                    :value "${ 
+                        formattime(EWW_TIME, '%I') == 12 ?  (formattime(EWW_TIME, '%M')) * (100 / 720) : 
+                        formattime(EWW_TIME, '%I') != 12 ? ( 60 * (formattime(EWW_TIME, '%I')) + (formattime(EWW_TIME, '%M')) ) * (100 / 720) : 
+                        formattime(EWW_TIME, '%I') 
+                    }"
+                    :start-at 75
+                    :clockwise true
+                    :thickness 5
+
+                )
+                (label :class "clock-label-bar" :text " ")
+
+            )
+        )
+    )
+)
+
+
+
+
 ;;----------------------------------------------;;
 
 (defwidget CLOCK_INF []
@@ -173,6 +247,7 @@
         :space-evenly "false"
         :halign "center"
         :spacing "0"
+        (CLOCK_BAR)
         (CLOCK)
         (ADJUTANT)
     )
