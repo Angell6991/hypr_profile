@@ -1,0 +1,45 @@
+(defpoll var_desktops :interval "2s"  "bash ~/.config/hypr/eww/widget_workspace/scripts/workspaces.sh")
+
+
+;;----------------Info_system--------------------;;
+
+(defwidget WORK []
+    (box
+        :class "box-down"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "label-inf"
+                :text "${var_desktops}"
+            )
+        )
+    )
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;-------------------def_var---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwindow widget_workspace
+    :stacking "bg"
+    :exclusive "false"
+    :monitor 0
+    :geometry 
+    (geometry
+        :x "0%"   
+        :y "28px"
+        :width "10%"
+        :height "10px"
+        :anchor "center bottom"
+    )
+    (box
+        :space-evenly "false"
+        :class "widget_workspace"
+        :spacing "0"
+        (WORK)
+    )
+)
+
+

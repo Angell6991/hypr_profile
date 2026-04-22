@@ -1,0 +1,38 @@
+.widget_workspace{
+  background-color: rgba(29, 29, 29, 0);
+  padding: 15px;
+}
+
+//////////////////////////////
+////Definir una variables ////
+//////////////////////////////
+
+////Definir una variables
+$color_01: rgba(238, 232, 170, 1); 
+$color_02: rgba(32, 54, 32, 1); 
+
+$color_main: rgba(238, 232, 170, 0.3);
+$color_box_up:  rgba(32, 54, 32, 1);
+$shadow_box_up: 0px 0px 3px rgba(32, 54, 32, 1);
+$color_box_down: rgba(01, 260, 10, 0);
+
+$color_ram_bar_up:rgba(32, 54, 32, 1); 
+$color_ram_bar_down:rgba(32, 54, 32, 0.4); 
+
+
+.box-down{
+  background-color: $color_main; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
+  min-width: 150px;
+  min-height: 30px;
+}
+
+.label-inf {
+  font-size: 15px;
+  color: $color_02;
+  font-family: "Inconsolata NF";
+}
+
+
