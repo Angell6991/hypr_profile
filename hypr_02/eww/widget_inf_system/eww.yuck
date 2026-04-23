@@ -6,15 +6,20 @@
 ;;----------------Info_system--------------------;;
 
 (defwidget CPU_TEMP_INF []
-    (box
-        :class "box-cpu"
-        :space-evenly "false"
-        :halign "center"
+    (button
+        :class  "glass_button"
+        :onclick "~/.config/hypr/eww/widget_inf_system/scripts/info_system.sh &" 
+        :tooltip "Info system: btop"
         (box
-            :hexpand "true"
-            (label
-                :class "CPU-label"
-                :text "󰻠 ${round(EWW_CPU.avg, 0)}% | 󱠇 ${EWW_TEMPS.CORETEMP_CORE_0}°C"
+            :class "box-cpu"
+            :space-evenly "false"
+            :halign "center"
+            (box
+                :hexpand "true"
+                (label
+                    :class "CPU-label"
+                    :text "󰻠 ${round(EWW_CPU.avg, 0)}% | 󱠇 ${EWW_TEMPS.CORETEMP_CORE_0}°C"
+                )
             )
         )
     )
@@ -210,27 +215,32 @@
 )
 
 (defwidget CLOCK_BAR []
-    (box
-        :class "box-clock-bar"
-        :space-evenly "false"
-        :halign "center"
+    (button
+        :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu open bar-window &" 
+        :class "glass_button"
+        :tooltip "Power menu"
         (box
-            :hexpand "true"
-            (overlay
-                (circular-progress
-                    :class "clock-bar"
-                    :value "${ 
-                        formattime(EWW_TIME, '%I') == 12 ?  (formattime(EWW_TIME, '%M')) * (100 / 720) : 
-                        formattime(EWW_TIME, '%I') != 12 ? ( 60 * (formattime(EWW_TIME, '%I')) + (formattime(EWW_TIME, '%M')) ) * (100 / 720) : 
-                        formattime(EWW_TIME, '%I') 
-                    }"
-                    :start-at 75
-                    :clockwise true
-                    :thickness 5
+            :class "box-clock-bar"
+            :space-evenly "false"
+            :halign "center"
+            (box
+                :hexpand "true"
+                (overlay
+                    (circular-progress
+                        :class "clock-bar"
+                        :value "${ 
+                            formattime(EWW_TIME, '%I') == 12 ?  (formattime(EWW_TIME, '%M')) * (100 / 720) : 
+                            formattime(EWW_TIME, '%I') != 12 ? ( 60 * (formattime(EWW_TIME, '%I')) + (formattime(EWW_TIME, '%M')) ) * (100 / 720) : 
+                            formattime(EWW_TIME, '%I') 
+                        }"
+                        :start-at 75
+                        :clockwise true
+                        :thickness 5
+
+                    )
+                    (label :class "clock-label-bar" :text " ")
 
                 )
-                (label :class "clock-label-bar" :text " ")
-
             )
         )
     )

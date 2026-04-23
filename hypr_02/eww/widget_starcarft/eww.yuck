@@ -5,9 +5,9 @@
 
 (defwidget ICON-ADJUTORA []
     (button
-        :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu open bar-window &" 
+        :onclick "~/.config/hypr/eww/widget_starcarft/scripts/IA_tgpt.sh &" 
         :class "glass_button"
-        :tooltip "Power menu"
+        :tooltip "tgpt"
         (box
             :class "gif-container_00"
             (box 
