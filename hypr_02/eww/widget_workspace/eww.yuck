@@ -11,12 +11,75 @@
         (box
             :hexpand "true"
             (label
-                :class "label-inf"
+                :class "label-workspace"
                 :text "${var_desktops}"
             )
         )
     )
 )
+
+(defwidget  BOX_RIGHT []
+    (box
+        :orientation "h" 
+        :halign "center" 
+        :class "box-up"
+        :spacing "10"
+        :valign "end" 
+
+        (button 
+            :onclick "~/.config/hypr/eww/widget_workspace/scripts/open.sh" 
+            :class "buttom-glass"
+            :tooltip "wi-fi"
+            (label 
+                :class "label-buttom"
+                :text "󰖩 "
+                ;;:text "󰖪 "
+            )
+        )
+
+        (button 
+            :onclick "blueman-manager &" 
+            :class "buttom-glass"
+            :tooltip "bluetooth"
+            (label 
+                :class "label-buttom"
+                :text " "
+            )
+        )
+    )
+)
+
+
+(defwidget  BOX_LEFT []
+    (box
+        :orientation "h" 
+        :halign "center" 
+        :class "box-up"
+        :spacing "10"
+        :valign "end" 
+
+        (button 
+            :onclick "firefox &" 
+            :class "buttom-glass"
+            :tooltip "firefox"
+            (label 
+                :class "label-buttom"
+                :text "󰈹 "
+            )
+        )
+
+        (button 
+            :onclick "amberol &" 
+            :class "buttom-glass"
+            :tooltip "music"
+            (label 
+                :class "label-buttom"
+                :text " "
+            )
+        )
+    )
+)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;-------------------def_var---------------------;;
@@ -35,10 +98,15 @@
         :anchor "center bottom"
     )
     (box
-        :space-evenly "false"
         :class "widget_workspace"
-        :spacing "0"
-        (WORK)
+        (box
+            :class "box-main"
+            :space-evenly "false"
+            :spacing "0"
+            (BOX_LEFT)
+            (WORK)
+            (BOX_RIGHT)
+        )
     )
 )
 

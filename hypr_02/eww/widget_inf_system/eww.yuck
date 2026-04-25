@@ -9,7 +9,7 @@
     (button
         :class  "glass_button"
         :onclick "~/.config/hypr/eww/widget_inf_system/scripts/info_system.sh &" 
-        :tooltip "Info system: btop"
+        :tooltip "Info system"
         (box
             :class "box-cpu"
             :space-evenly "false"
