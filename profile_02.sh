@@ -30,5 +30,5 @@ dunst &
 
 hyprctl reload
 hyprctl setcursor Moga-Neon-Water 30 
-
+hyprpm  reload 
 
