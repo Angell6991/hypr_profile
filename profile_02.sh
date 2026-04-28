@@ -32,3 +32,6 @@ hyprctl reload
 hyprctl setcursor Moga-Neon-Water 30 
 hyprpm  reload 
 
+bash    -c  ~/.config/hypr/random_imagen.sh
+
+

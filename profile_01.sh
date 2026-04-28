@@ -32,3 +32,6 @@ dunst &
 hyprctl reload
 hyprctl setcursor oreo_pink_cursors 24 
 
+bash    -c  ~/.config/hypr/random_imagen.sh
+
+
