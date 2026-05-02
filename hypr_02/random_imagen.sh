@@ -9,7 +9,8 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname '*.jpg' -o -iname '*.png' \)
 
 
 # tipos de transitions 
-TYPE_LIST=("simple" "outer" "center" "wipe" "top" "bottom" "left" "right")
+# TYPE_LIST=("simple" "outer" "center" "wipe" "top" "bottom" "left" "right")
+TYPE_LIST=("outer" "center" "wipe")
 TYPE=${TYPE_LIST[$(( RANDOM % ${#TYPE_LIST[@]} ))]}
 
 
