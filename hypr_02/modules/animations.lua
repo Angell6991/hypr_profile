@@ -29,9 +29,9 @@ local list_animation    =   {
     { leaf = "border",          speed = 1 },     -- bordes                         
     { leaf = "borderangle",     speed = 1 },     -- gradientes/ángulo RGB 
 
-    { leaf = "fade",            speed = 1 },     -- opacidad general               
-    { leaf = "fadeIn",          speed = 1 },     -- aparición                      
-    { leaf = "fadeOut",         speed = 1 },     -- desaparición                   
+    { leaf = "fade",            speed = 3 },     -- opacidad general               
+    { leaf = "fadeIn",          speed = 3 },     -- aparición                      
+    { leaf = "fadeOut",         speed = 3 },     -- desaparición                   
     
     { leaf = "layers",          speed = 1,  style = "slide" },          -- overlays/barras                
     { leaf = "layersIn",        speed = 1,  style = "slide bottom" },   -- entrada de layers              
