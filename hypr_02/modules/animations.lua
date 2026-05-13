@@ -33,9 +33,9 @@ local list_animation    =   {
     { leaf = "fadeIn",          speed = 3 },     -- aparición                      
     { leaf = "fadeOut",         speed = 3 },     -- desaparición                   
     
-    { leaf = "layers",          speed = 1,  style = "slide" },          -- overlays/barras                
-    { leaf = "layersIn",        speed = 1,  style = "slide bottom" },   -- entrada de layers              
-    { leaf = "layersOut",       speed = 1,  style = "slide top" },      -- salida de layers               
+    { leaf = "layers",          speed = 3,  style = "slide" },          -- overlays/barras                
+    { leaf = "layersIn",        speed = 3,  style = "slide bottom" },   -- entrada de layers              
+    { leaf = "layersOut",       speed = 3,  style = "slide top" },      -- salida de layers               
     
     { leaf = "workspaces",      speed = 2,  style =  "slidefadevert 100%" },     -- cambio de workspace            
     { leaf = "workspacesIn",    speed = 2,  style =  "slidefadevert 100%" },     -- workspace entrando             
