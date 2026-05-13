@@ -37,9 +37,9 @@ local list_animation    =   {
     { leaf = "layersIn",        speed = 1,  style = "slide bottom" },   -- entrada de layers              
     { leaf = "layersOut",       speed = 1,  style = "slide top" },      -- salida de layers               
     
-    { leaf = "workspaces",      speed = 3,  style =  "slidefadevert 100%" },     -- cambio de workspace            
-    { leaf = "workspacesIn",    speed = 3,  style =  "slidefadevert 100%" },     -- workspace entrando             
-    { leaf = "workspacesOut",   speed = 3,  style =  "slidefadevert 100%" },     -- workspace saliendo             
+    { leaf = "workspaces",      speed = 2,  style =  "slidefadevert 100%" },     -- cambio de workspace            
+    { leaf = "workspacesIn",    speed = 2,  style =  "slidefadevert 100%" },     -- workspace entrando             
+    { leaf = "workspacesOut",   speed = 2,  style =  "slidefadevert 100%" },     -- workspace saliendo             
     
     { leaf = "zoomFactor",      speed = 1 },     -- zoom suave                     
     { leaf = "global",          speed = 1 },     -- fallback global                
