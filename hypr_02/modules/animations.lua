@@ -23,7 +23,7 @@ hl.curve("easy", {
 local list_animation    =   {
 
     { leaf = "windows",         speed = 2,  style = "slide" },          -- movimiento/cambio de ventanas  
-    { leaf = "windowsIn",       speed = 2,  style = "slide bottom"},    -- entrada de ventanas            
+    { leaf = "windowsIn",       speed = 3,  style = "slide bottom"},    -- entrada de ventanas            
     { leaf = "windowsOut",      speed = 2,  style = "slide top" },      -- salida de ventanas   
 
     { leaf = "border",          speed = 1 },     -- bordes                         
