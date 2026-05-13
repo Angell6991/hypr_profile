@@ -20,49 +20,40 @@ hl.curve("easy", {
 --------------------------------------------------------
 --------------------- ANIMATIONS -----------------------
 --------------------------------------------------------
-hl.animation({
-    leaf        =   "windows",
-    enabled     =   true,
-    speed       =   2,
-    bezier      =   "animation_main",
-    style       =   "slide bottom",
-})
+local list_animation    =   {
 
-hl.animation({
-    leaf        =   "windowsOut",
-    enabled     =   true,
-    speed       =   3,
-    bezier      =   "animation_main",
-    style       =   "slide top",
-})
+    { leaf = "windows",         speed = 2,  style = "slide" },          -- movimiento/cambio de ventanas  
+    { leaf = "windowsIn",       speed = 2,  style = "slide bottom"},    -- entrada de ventanas            
+    { leaf = "windowsOut",      speed = 2,  style = "slide top" },      -- salida de ventanas   
 
-hl.animation({
-    leaf        =   "border",
-    enabled     =   true,
-    speed       =   1,
-    bezier      =   "animation_main",
-})
+    { leaf = "border",          speed = 1 },     -- bordes                         
+    { leaf = "borderangle",     speed = 1 },     -- gradientes/ángulo RGB 
 
-hl.animation({
-    leaf        =   "borderangle",
-    enabled     =   true,
-    speed       =   1,
-    bezier      =   "animation_main",
-})
+    { leaf = "fade",            speed = 1 },     -- opacidad general               
+    { leaf = "fadeIn",          speed = 1 },     -- aparición                      
+    { leaf = "fadeOut",         speed = 1 },     -- desaparición                   
+    
+    { leaf = "layers",          speed = 1,  style = "slide" },          -- overlays/barras                
+    { leaf = "layersIn",        speed = 1,  style = "slide bottom" },   -- entrada de layers              
+    { leaf = "layersOut",       speed = 1,  style = "slide top" },      -- salida de layers               
+    
+    { leaf = "workspaces",      speed = 3,  style =  "slidefadevert 100%" },     -- cambio de workspace            
+    { leaf = "workspacesIn",    speed = 3,  style =  "slidefadevert 100%" },     -- workspace entrando             
+    { leaf = "workspacesOut",   speed = 3,  style =  "slidefadevert 100%" },     -- workspace saliendo             
+    
+    { leaf = "zoomFactor",      speed = 1 },     -- zoom suave                     
+    { leaf = "global",          speed = 1 },     -- fallback global                
 
-hl.animation({
-    leaf        =   "fade",
-    enabled     =   true,
-    speed       =   5,
-    bezier      =   "animation_main",
-})
+}
 
-hl.animation({
-    leaf        =   "workspaces",
-    enabled     =   true,
-    speed       =   3,
-    bezier      =   "animation_main",
-    style       =   "slidefadevert 100%",
-})
+for i   =   1,  #list_animation do
+    hl.animation({ 
+        leaf    = list_animation[i].leaf,      
+        enabled = true,  
+        speed   = list_animation[i].speed,    
+        bezier  = "animation_main", 
+        style   = list_animation[i].style, 
+    })
+end
 
 
