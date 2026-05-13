@@ -33,7 +33,8 @@ hl.config({
             range        = 50,
             render_power = 5,
             color        = 0xee1e1e1e,
-            color_inactive  =   0x002e2e2e,
+            color_inactive  =   0x80080808,
+            -- color_inactive  =   0x002e2e2e,  -- quitar sombra de ventanas 
             -- ignore_window   =   false,
         },
 

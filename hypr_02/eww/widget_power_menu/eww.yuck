@@ -32,7 +32,7 @@
         )
 
         (button 
-            :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu kill && sleep 2 && hyprctl dispatch exit 0" 
+            :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu kill && sleep 2 && command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'" 
             :class "button-power-01"
             :tooltip "close secion"
             (label
