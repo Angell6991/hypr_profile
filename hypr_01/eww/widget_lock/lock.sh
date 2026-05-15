@@ -4,7 +4,7 @@
 
 if pgrep -x "hypridle" > /dev/null; then
     notify-send "󱚳  System security:" "automatic screen lock disabled"
-    ~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_lock open lock-icon-glass &
+    ~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_lock/ open lock-icon-glass &
     pkill -x hypridle
 
 else

@@ -1,99 +1,204 @@
-.widget_inf {
-  background-color: rgba(15, 01, 19, 0); 
+.widget_inf{
+  background-color: rgba(29, 29, 29, 0);
+  padding: 15px;
+}
+
+//////////////////////////////
+////Definir una variables ////
+//////////////////////////////
+
+////Definir una variables
+$color_01: rgba(226, 226, 226, 1); 
+$color_02: rgba(30, 30, 30, 1); 
+$font_size: 20px;
+
+$color_main: rgba(226, 226, 226, 0.3);
+$color_box_up:  rgba(30, 30, 30, 1);
+$shadow_box_up: 0px 0px 3px rgba(30, 30, 30, 1);
+$color_box_down: rgba(01, 260, 10, 0);
+
+$color_ram_bar_up:rgba(30, 30, 30, 1); 
+$color_ram_bar_down:rgba(30, 30, 30, 0.4); 
+
+//////////////////////////////
+////    container_box     ////
+//////////////////////////////
+
+.box-main{
+  background-color: $color_main;
+  padding: 3px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 3px rgba(32, 54, 32, 1)
+}
+
+.box-end-left{
+  background-color: $color_box_down;
   padding: 0px;
+  border-radius: 50px;
+  min-width: 257px;
+}
+
+.box-end-right{
+  background-color: $color_box_down;
+  padding: 0px;
+  border-radius: 50px;
+  min-width: 323px;
 }
 
 
-//////////////////////////////////
-////    widget_inf_system     ////
-//////////////////////////////////
+////-------box-up
 
-
-// Definir una variable de color
-$color_01: rgba(29, 29, 29, 0.2);  
-$color_02: rgba(231, 231, 231); 
-// $color_02: rgba(184, 184, 184); 
-
-.box-inf-system {
-  background-color: rgba(29, 29, 29, 0.7); 
-  border-radius: 10px;
-  padding: 10px;
+.box-battery{
+  background-color: $color_box_up; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
+  min-width: 60px;
 }
 
-.box-inf-system_01 {
-  background-color: $color_01; 
-  border-radius: 10px;
-  padding: 0px;
+.box-cpu{
+  background-color: $color_box_up; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
+  min-width: 130px;
+}
+
+.box-day{
+  background-color: $color_box_up; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
   min-width: 90px;
 }
 
-.box-inf-system_02 {
-  background-color: $color_01; 
-  border-radius: 10px;
+.box-adjutant{
+  background-color: $color_box_up; 
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
+  // min-width: 90px;
+}
+
+.box-icon-calendar{
+  background-color: $color_box_up; 
+  padding: 5px 5px 5px 10px;
+  border-radius: 100px;
+  box-shadow: $shadow_box_up;
+  // min-width: 15px;
+}
+
+
+////-------box-down
+.box-ram{
+  background-color: $color_box_down;
+  padding: 5px;
+  border-radius: 100px;
+  min-width: 55px;
+}
+
+.box-ram-bar{
+  background-color: $color_box_down;
   padding: 0px;
+  border-radius: 100px;
+  min-width: 50px;
+}
+
+.box-calendar{
+  background-color: $color_box_down;
+  padding: 5px;
+  border-radius: 100px;
   min-width: 110px;
 }
 
-.glass_box {
-  background: rgba(255, 39, 23, 0);
-  border-radius: 5px;
-  padding: 4px 10px 4px 10px;
+.box-clock{
+  background-color: $color_box_down;
+  padding: 5px;
+  border-radius: 100px;
+  min-width: 60px;
+}
+
+.box-clock-bar{
+  background-color: $color_box_down;
+  padding: 0px;
+  border-radius: 100px;
+  min-width: 30px;
+}
+
+
+// //////////////////////////////////
+// ////      inf_labels          ////
+// //////////////////////////////////
+
+.glass_button {
+  background: rgba(29, 29, 29, 0);
+  box-shadow: none;
+  border: none;
+  border-color: #FFFFFF;
+  padding: 0;
+  font-size: 20px;
+  color: #00CCDE;
 }
 
 .battery-label {
-  font-size: 19px;
-  color: $color_02;
+  font-size: 14px;
+  color: $color_01;
   font-family: "Inconsolata NF";
 }
 
 .ram-label {
-  font-size: 17px;
+  font-size: 14px;
+  color: $color_02;
+  font-family: "Inconsolata NF bold";
+}
+
+.ram-label-bar {
+  font-size: 14px;
   color: $color_02;
   font-family: "Inconsolata NF";
 }
 
-.CPU-inf {
-  font-size: 17px;
+.CPU-label {
+  font-size: 14px;
+  color: $color_01;
+  font-family: "Inconsolata NF";
+}
+
+.time-label{
+  font-size: 10px;
+  color: $color_02;
+  font-family: "frank";
+}
+
+.clock-label-bar {
+  font-size: 14px;
   color: $color_02;
   font-family: "Inconsolata NF";
 }
 
-.CPU-inf-temp {
-  font-size: 17px;
+.day-label{
+  font-size: 10px;
+  color: $color_01;
+  font-family: "frank";
+}
+
+.calendar-label{
+  font-size: 10px;
   color: $color_02;
+  font-family: "frank";
+}
+
+.icon-label-calendar{
+  font-size: 19px;
+  color: $color_01;
   font-family: "Inconsolata NF";
 }
 
-
-//////////////////////////////////
-////-----View_workspaces------////
-//////////////////////////////////
-
-.desk-box_01 {
-  background-color: rgba(29, 29, 29, 0); 
-  padding: 0px;
-  border-radius: 10px; 
-  min-width: 150px;
+.adjutant{
+  font-size: 20px;
+  color: $color_01;
+  font-family: "starcraftt";
 }
-
-.desk-test {
-  font-size: 17px;
-  color: rgba(29, 29, 29);
-  font-family: "Inconsolata NF";
-}
-
-
-//////////////////////////////////
-////-----View_Separator-------////
-//////////////////////////////////
-
-.separator-text {
-  font-size: 17px;
-  color: #B8B8B8;
-  font-family: "Inconsolata NF";
-}
-
-
 
 //////////////////////////////////
 ////      progress_bars       ////
@@ -101,22 +206,14 @@ $color_02: rgba(231, 231, 231);
 
 .ram-bar  {
   border-radius: 20px;
-  background: rgba(231, 231, 231, 0.2);
-  color: rgba(231, 231, 231, 1);
+  background: $color_ram_bar_down;
+  color: $color_ram_bar_up;
 }
 
-.box-ram-bar{
-  background-color: rgba(29, 29, 29, 0);
-  padding: 0px;
-  border-radius: 100px;
-  min-width: 30px;
-  min-height: 30px;
-}
-
-.ram-label-bar {
-  font-size: 14px;
-  color: $color_02;
-  font-family: "Inconsolata NF";
+.clock-bar  {
+  border-radius: 20px;
+  background: $color_ram_bar_down;
+  color: $color_ram_bar_up;
 }
 
 

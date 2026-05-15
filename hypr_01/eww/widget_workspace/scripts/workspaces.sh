@@ -8,7 +8,7 @@ clients=$(hyprctl clients -j)
 active_workspace_ids=$(echo "$clients" | jq -r '[.[] | .workspace.id] | unique[]')
 
 # Definir emojis por número de escritorio (puedes personalizar estos emojis según tu preferencia)
-emojis=(" " " " " " "󰴓 " "󰊠 " "󱍢 ")
+emojis=(" " " " " " "󰊠 ")
 
 # Inicializar variable para almacenar emojis de los escritorios con ventanas abiertas
 active_workspaces=""

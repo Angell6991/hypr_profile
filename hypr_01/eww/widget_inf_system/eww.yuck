@@ -1,12 +1,29 @@
-(defpoll var_desktops :interval "2s"  "bash ~/.config/hypr/eww/widget_inf_system/scripts/workspaces.sh")
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;---------------def_widgets---------------------;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;----------------Info_system--------------------;;
+
+(defwidget CPU_TEMP_INF []
+    (button
+        :class  "glass_button"
+        :onclick "~/.config/hypr/eww/widget_inf_system/scripts/info_system.sh &" 
+        :tooltip "Info system"
+        (box
+            :class "box-cpu"
+            :space-evenly "false"
+            :halign "center"
+            (box
+                :hexpand "true"
+                (label
+                    :class "CPU-label"
+                    :text "󰻠 ${round(EWW_CPU.avg, 0)}% | 󱠇 ${EWW_TEMPS.CORETEMP_CORE_0}°C"
+                )
+            )
+        )
+    )
+)
 
 (defwidget RAM_BAR []
     (box
@@ -34,42 +51,65 @@
 
 (defwidget RAM_INF []
     (box
-        :class "box-inf-system_02"
-        :halign "center"
-        :space-evenly "false"            
-        (box
-            :class "glass_box"
-            :halign "center"
-            :hexpand "true"
-            :space-evenly "false"
-            :spacing "10"
-            (RAM_BAR)
-            (label
-                :class "ram-label" 
-                :text "${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} GB"
-            )
+        :class "box-ram"
+        :space-evenly "false"
+        (label
+            :class "ram-label" 
+            :text "${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} GB"
         )
     )
 )
 
 (defwidget BATTERY_INF []
     (box
-        :class "box-inf-system_01"
-        :halign "center"
+        :class "box-battery"
         :space-evenly "false"
+        :halign "center"
         (box
-            :class "glass_box"
-            :halign "center"
             :hexpand "true"
-            :space-evenly "false"
             (label
                 :class "battery-label"
                 :text "${
-                    EWW_BATTERY['BAT0'].status == 'Charging' ? '󰂄' :
-                    EWW_BATTERY['BAT0'].status == 'Discharging' ? '󰂀' :
-                    EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' :
-                    EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃':
-                    EWW_BATTERY['BAT0'].status} ${EWW_BATTERY['BAT0'].capacity}%"
+                    EWW_BATTERY['BAT0'].status == 'Charging' ? '󰂄' : 
+                    EWW_BATTERY['BAT0'].status == 'Discharging' ? '󰂀' : 
+                    EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' : 
+                    EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃': 
+                    EWW_BATTERY['BAT0'].status
+                    } ${EWW_BATTERY['BAT0'].capacity}%"
+            )
+        )
+    )
+)
+
+
+;;----------------------------------------------;;
+
+(defwidget SYS_INF []
+    (box
+        :class  "box-main"
+        :space-evenly "false"
+        :halign "center"
+        :spacing "0"
+        (BATTERY_INF)
+        (RAM_BAR)
+        (RAM_INF)
+        (CPU_TEMP_INF)
+    )
+)
+
+
+;;-----------------Info_day----------------------;;
+
+(defwidget ICON_CALENDAR []
+    (box
+        :class "box-icon-calendar"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "icon-label-calendar"
+                :text   "󰃭 "
             )
         )
     )
@@ -77,28 +117,149 @@
 
 
 
-;;-----------------WorkSpaces--------------------;;
-
-(defwidget work-station []
+(defwidget DAY []
     (box
-        :class "desk-box_01"
+        :class "box-day"
+        :space-evenly "false"
         :halign "center"
-        :space-evenly "false"            
-        (label
-            :class "desk-test"
-            :text "${var_desktops}"
+        (box
+            :hexpand "true"
+            (label
+                :class "day-label"
+                :text "${formattime(EWW_TIME, '%a | %b')}"
+            )
         )
     )
 )
 
-;;-------------------Sepator--------------------;;
-
-(defwidget separator []
+(defwidget CALENDAR []
     (box
-        (label
-            :class "separator-text"
-            :text   ""
+        :class "box-calendar"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "calendar-label"
+                :text "${formattime(EWW_TIME, '%d | %m | %Y')}"
+            )
         )
+    )
+)
+
+;;----------------------------------------------;;
+
+(defwidget DAY_INF []
+    (box
+        :class  "box-main"
+        :space-evenly "false"
+        :halign "center"
+        (button
+            :onclick "gnome-calendar &" 
+            :class "glass_button"
+            :tooltip "Calendar | ${formattime(EWW_TIME, '%d | %m | %Y')} |"
+            (box
+                :halign "center"
+                :space-evenly "false"
+                :spacing "0"
+                (ICON_CALENDAR)
+                (CALENDAR)
+                (DAY)
+            )
+        )
+    )
+)
+
+
+;;-----------------inf_hours--------------------;;
+
+(defwidget ADJUTANT []
+    (button
+        :class  "glass_button"
+        :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_starcarft  open adjutora-icon-glass &"
+        :onrightclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_starcarft  kill &"
+        :tooltip "Adjutant"        
+        (box
+            :class "box-adjutant"
+            :space-evenly "false"
+            :halign "center"
+            (box
+                :hexpand "true"
+                (label
+                    :class "adjutant"
+                    :text   "d"
+                )
+            )
+        )
+    )
+)
+
+(defwidget CLOCK []
+    (button
+        :onclick "gnome-clocks &" 
+        :class "glass_button"
+        :tooltip "Clock"
+        (box
+            :class "box-clock"
+            :space-evenly "false"
+            :halign "center"
+            (box
+                :hexpand "true"
+                (label
+                    :class "time-label"
+                    :text "${formattime(EWW_TIME, '%H : %M')}"
+                )
+            )
+        )
+    )
+)
+
+(defwidget CLOCK_BAR []
+    (button
+        :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu open bar-window &" 
+        :class "glass_button"
+        :tooltip "Power menu"
+        (box
+            :class "box-clock-bar"
+            :space-evenly "false"
+            :halign "center"
+            (box
+                :hexpand "true"
+                (overlay
+                    (circular-progress
+                        :class "clock-bar"
+                        :value "${ 
+                            formattime(EWW_TIME, '%I') == 12 ?  (formattime(EWW_TIME, '%M')) * (100 / 720) : 
+                            formattime(EWW_TIME, '%I') != 12 ? ( 60 * (formattime(EWW_TIME, '%I')) + (formattime(EWW_TIME, '%M')) ) * (100 / 720) : 
+                            formattime(EWW_TIME, '%I') 
+                        }"
+                        :start-at 75
+                        :clockwise true
+                        :thickness 5
+
+                    )
+                    (label :class "clock-label-bar" :text " ")
+
+                )
+            )
+        )
+    )
+)
+
+
+
+
+;;----------------------------------------------;;
+
+(defwidget CLOCK_INF []
+    (box
+        :class  "box-main"
+        :space-evenly "false"
+        :halign "center"
+        :spacing "0"
+        (CLOCK_BAR)
+        (CLOCK)
+        (ADJUTANT)
     )
 )
 
@@ -108,35 +269,26 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defwindow widget_inf
-    :class "widget_inf"
-    :stacking "bg"
+    :stacking "fg"
+    :exclusive "true"
     :monitor 0
-    :valign  "fill"
     :geometry 
     (geometry
-        :x "2%"  ;;2% 
-        :y "30px"
-        :width "12%"
-        :height "10px"
-        :anchor "bottom left"
-        ;; :anchor "top left"
+        :x "0%"   
+        :y "0px"
+        :width "0%"
+        :height "0px"
+        :anchor "top center"
     )
     (box
-        :orientation "v"
-        :halign "center"
         :space-evenly "false"
-        :spacing "10"
-        (box
-            :orientation "h"
-            :halign "center"
-            :space-evenly "false"
-            :spacing "10"
-            (BATTERY_INF)
-            (separator)
-            (RAM_INF)
-            (separator)
-            (work-station)
-        )
+        :class "widget_inf"
+        :spacing "0"
+        (SYS_INF)
+        (box :class "box-end-left")
+        (CLOCK_INF)
+        (box :class "box-end-right")
+        (DAY_INF)
     )
 )
 

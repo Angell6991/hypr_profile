@@ -3,12 +3,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(defwidget icon-lock []
-    (box
-       (label
-            :class  "icon"
-            :text "j"
-       ) 
+(defwidget ICON-ADJUTORA []
+    (button
+        :onclick "~/.config/hypr/eww/widget_starcarft/scripts/IA_tgpt.sh &" 
+        :class "glass_button"
+        :tooltip "tgpt"
+        (box
+            :class "gif-container_00"
+            (box 
+                :class "gif-container_01"
+                (image
+                    :path   "adjutora_gif.gif"
+                ) 
+            )
+        )
     )
 )
 
@@ -17,23 +25,23 @@
 ;;-----------------def_widget--------------------;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defwindow lock-icon-glass
+(defwindow adjutora-icon-glass
     :monitor 0 
     :class "bar-window"
     :stacking "fg" 
     :geometry 
     (geometry 
-        :x "1.1%" 
-        :y "15px" 
+        :x "3%" 
+        :y "7px" 
         :width "5%" 
         :height "30px"
-        :anchor "bottom right"
+        :anchor "top center"
     )
     (box
         :orientation "v" 
         :spacing "10"           ;;45
         ;:space-evenly "false"   ;;espacio estre widget valor buleano: true ó false
-        (icon-lock)
+        (ICON-ADJUTORA)
     )
 )
 
