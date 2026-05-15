@@ -4,7 +4,10 @@
 local initial   =   {
     
     -- instalar:  pacman -S xdg-desktop-portal-hyprland , para el soporte de compartir pantalla 
-    "dbus-update-activation-environment",                   -- systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+    "dbus-update-activation-environment -- systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GTK_THEME",
+    "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GTK_THEME",
+
     "awww-daemon &",                        
     "sleep 4 && ~/.config/hypr/random_imagen.sh &",
     "hypridle &",                                           -- iniciando el control para himbernacion del sistema
