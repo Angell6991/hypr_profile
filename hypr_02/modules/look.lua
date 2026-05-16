@@ -4,10 +4,10 @@
 hl.config({
     
     general =   {
-        gaps_in     =   15,
-        gaps_out    =   { top = 10, left = 25, right = 25, bottom = 25 },       
+        gaps_in     =   5,
+        gaps_out    =   { top = 5, left = 5, right = 5, bottom = 5 },       
 
-        border_size = 0,
+        border_size = 2,
 
         col = {
             active_border   = { colors = {"rgba(ff0000ee)", "rgba(ff44a0ee)"}, angle = 10 },
@@ -23,7 +23,7 @@ hl.config({
 
     decoration = {
         rounding       = 20,
-        rounding_power = 2,
+        rounding_power = 1,
 
         active_opacity   = 1.0,
         inactive_opacity = 0.8,
@@ -32,7 +32,7 @@ hl.config({
             enabled      = true,
             range        = 50,
             render_power = 5,
-            color        = 0xee1e1e1e,
+            color        = 0x001e1e1e,
             color_inactive  =   0x80080808,
             -- color_inactive  =   0x002e2e2e,  -- quitar sombra de ventanas 
             -- ignore_window   =   false,
