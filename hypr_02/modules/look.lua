@@ -5,13 +5,13 @@ hl.config({
     
     general =   {
         gaps_in     =   5,
-        gaps_out    =   { top = 5, left = 5, right = 5, bottom = 5 },       
+        gaps_out    =   { top = 10, left = 10, right = 10, bottom = 10 },       
 
-        border_size = 2,
+        border_size = 1,
 
         col = {
-            active_border   = { colors = {"rgba(ff0000ee)", "rgba(ff44a0ee)"}, angle = 10 },
-            inactive_border = "rgba(1d1d1dee)",
+            active_border   = { colors = {"rgba(b8b8ffee)", "rgba(470038ee)"}, angle = 50 },
+            inactive_border = "rgba(226, 226, 226, 0)",
         },
 
         resize_on_border    =   true,
@@ -40,9 +40,9 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
-            passes    = 5,
-            vibrancy  = -10,
+            size      = 10,
+            passes    = 2,
+            vibrancy  = 100,
         },
     },
 
@@ -67,11 +67,11 @@ var_env =   {
     { "XDG_SESSION_TYPE",       "wayland" },
     { "XDG_SESSION_DESKTOP",    "Hyprland" },
 
-    { "XCURSOR_THEME",      "Moga-Neon-Water" },
+    { "XCURSOR_THEME",      "Moga-Neon-Magenta" },
     { "XCURSOR_SIZE",       "30" },
-    { "HYPRCURSOR_THEME",   "Moga-Neon-Water" },
+    { "HYPRCURSOR_THEME",   "Moga-Neon-Magenta" },
     { "HYPRCURSOR_SIZE",    "30" },
-    { "GTK_THEME",          "Graphite-green-Dark" },
+    { "GTK_THEME",          "Dracula" },
 
 }
 

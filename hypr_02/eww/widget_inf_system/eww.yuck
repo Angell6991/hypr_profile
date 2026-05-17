@@ -109,7 +109,7 @@
             :hexpand "true"
             (label
                 :class "icon-label-calendar"
-                :text   "󰃭 "
+                :text   " 󰃭 "
             )
         )
     )

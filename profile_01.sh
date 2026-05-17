@@ -25,6 +25,7 @@ cp  starship_01.toml    ~/.config/starship.toml
 cp  fuzzel_01.ini       ~/.config/fuzzel/fuzzel.ini
 cp  dunstrc_01          ~/.config/dunst/dunstrc
 cp  kitty_01.conf       ~/.config/kitty/kitty.conf
+cp  btop_01.conf       ~/.config/btop/btop.conf
 dunst &
 
 

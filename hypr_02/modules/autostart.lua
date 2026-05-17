@@ -18,11 +18,11 @@ local initial   =   {
     -- "hyprpm reload &",
 
     ----------------------iniciar_eww-----------------------
-    "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system daemon &",
-    "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system open widget_inf &",
+    -- "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system daemon &",
+    -- "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system open widget_inf &",
 
-    "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_workspace daemon &",
-    "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_workspace open widget_workspace &",
+    -- "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_workspace daemon &",
+    -- "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_workspace open widget_workspace &",
 
 }
 
