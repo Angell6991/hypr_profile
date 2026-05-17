@@ -5,10 +5,11 @@
 
 (defwidget icon-lock []
     (box
-       (label
+        :class  "box-main"
+        (label
             :class  "icon"
-            :text "j"
-       ) 
+            :text "󱚳 " 
+        ) 
     )
 )
 

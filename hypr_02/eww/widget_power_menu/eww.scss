@@ -8,53 +8,55 @@
 //////////////////////////////
 
 ////Definir una variables
-$color_01: rgba(238, 232, 170, 1); 
-$color_02: rgba(32, 54, 32, 1); 
-$font_size: 20px;
+$color_01: rgba(184, 184, 255, 1); 
+$color_02: rgba(184, 184, 255, 1); 
+$font_size: 40px;
 
 //////////////////////////////
 ////      power_box       ////
 //////////////////////////////
 
 .box-main{
-  background-color: rgba(238, 232, 170, 0.3);
-  padding: 3px;
-  border-radius: 50px;
-  box-shadow: 0px 0px 3px rgba(32, 54, 32, 1)
+  background-color: rgba(41, 47, 70, 0.7);
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px rgba(41, 47, 70, 1)
 }
 
 .box-up{
-  background-color: rgba(32, 54, 32, 1);
-  padding: 5px;
-  border-radius: 100px;
-  box-shadow: 0px 0px 5px rgba(32, 54, 32, 1);
+  background-color: rgba(9, 16, 29, 1);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(9, 16, 29, 1);
 }
 
 .box-down{
-  background-color: rgba(01, 260, 10, 0);
+  background-color: rgba(9, 16, 29, 1);
   padding: 5px;
-  border-radius: 100px;
+  border-radius: 5px;
+  min-width: 225px;
+  box-shadow: 0px 0px 5px rgba(9, 16, 29, 1);
 }
 
 
 ////------config_butons---////
 .button-power-01 {
-  // background: rgba(01, 260, 10, 0);
-  padding: 15;
-  border-radius: 100px 100px 100px 100px;
+  background: rgba(41, 47, 70, 1);
+  padding: 25;
+  border-radius: 5px 5px 5px 5px;
   &:active,
   &:focus {
-    background-color: rgba(238, 232, 170, 0.2); 
+    background-color: rgba(184, 184, 255, 0.6); 
   }
 }
 
 .button-power-02 {
-  background: rgba(01, 260, 10, 0);
-  padding: 15;
-  border-radius: 100px 100px 100px 100px;
+  background: rgba(41, 47, 70, 1);
+  padding: 10;
+  border-radius: 5px 5px 5px 5px;
   &:active,
   &:focus {
-    background-color: rgba(32, 54, 32, 0.4);
+    background-color: rgba(184, 184, 255, 0.6); 
   }
 }
 
