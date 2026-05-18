@@ -1,0 +1,176 @@
+(defpoll var_desktops :interval "2s"  "bash ~/.config/hypr/eww/widget_inf_system/scripts/workspaces.sh")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;---------------def_widgets---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;----------------Info_system--------------------;;
+
+(defwidget WORK []
+    (box
+        :class "box-work"
+        :space-evenly "false"
+        :halign "start"
+        (box
+            :hexpand "true"
+            :halign "start"
+            (label
+                :class "label-workspace"
+                :text "${var_desktops}"
+            )
+        )
+    )
+)
+
+
+(defwidget CPU_TEMP_INF []
+    (button
+        :class  "glass_button"
+        :onclick "~/.config/hypr/eww/widget_inf_system/scripts/info_system.sh &" 
+        :tooltip "Info system"
+        (box
+            :class "box-cpu"
+            :space-evenly "false"
+            :halign "center"
+            (box
+                :hexpand "true"
+                (label
+                    :class "CPU-label"
+                    :text "󰻠  ${round(EWW_CPU.avg, 0)} % | 󱠇  ${EWW_TEMPS.CORETEMP_CORE_0} °c"
+                )
+            )
+        )
+    )
+)
+
+
+(defwidget RAM_INF []
+    (box
+        :class "box-ram"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "ram-label" 
+                :text "  ${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} gb"
+            )
+        )
+    )
+)
+
+;;----------------------------------------------;;
+
+(defwidget SYS_INF []
+    (box
+        :class  "box-main"
+        :space-evenly "false"
+        :halign "start"
+        :spacing "0"
+        (RAM_INF)
+        (CPU_TEMP_INF)
+    )
+)
+
+
+;;-----------------Info_day----------------------;;
+
+(defwidget ICON_CALENDAR []
+    (box
+        :class "box-icon-calendar"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "icon-label-calendar"
+                :text   " 󰃭 "
+            )
+        )
+    )
+)
+
+
+
+(defwidget DAY []
+    (box
+        :class "box-day"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "day-label"
+                :text "${formattime(EWW_TIME, '%a - %b')}"
+            )
+        )
+    )
+)
+
+(defwidget CALENDAR []
+    (box
+        :class "box-calendar"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "calendar-label"
+                :text "${formattime(EWW_TIME, '%d - %m - %Y')}"
+            )
+        )
+    )
+)
+
+;;----------------------------------------------;;
+
+(defwidget DAY_INF []
+    (box
+        :class  "box-main"
+        :space-evenly "false"
+        :halign "center"
+        (button
+            :onclick "gnome-calendar &" 
+            :class "glass_button"
+            :tooltip "Calendar | ${formattime(EWW_TIME, '%d | %m | %Y')} |"
+            (box
+                :halign "center"
+                :space-evenly "false"
+                :spacing "10"
+                (ICON_CALENDAR)
+                (CALENDAR)
+                (DAY)
+            )
+        )
+    )
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;-------------------def_var---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwindow widget_inf
+    :stacking "bg"
+    :exclusive "false"
+    :monitor 0
+    :geometry 
+    (geometry
+        :x "0%"   
+        :y "0px"
+        :width "0%"
+        :height "0px"
+        :anchor "bottom left"
+    )
+    (box
+        :orientation "h" 
+        :space-evenly "false"
+        :class "widget_inf"
+        :spacing "15"
+        (DAY_INF)
+        (SYS_INF)
+        (WORK)
+    )
+)
+
+

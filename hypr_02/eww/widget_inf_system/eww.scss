@@ -1,5 +1,5 @@
 .widget_inf{
-  background-color: rgba(29, 29, 29, 1);
+  background-color: rgba(29, 29, 29, 0);
   padding: 10px;
 }
 
@@ -8,17 +8,17 @@
 //////////////////////////////
 
 ////Definir una variables
-$color_01: rgba(238, 232, 170, 1); 
-$color_02: rgba(32, 54, 32, 1); 
+$color_01: rgba(184, 184, 255, 1); 
+$color_02: rgba(184, 184, 255, 1); 
 $font_size: 20px;
 
-$color_main: rgba(238, 232, 170, 0.3);
-$color_box_up:  rgba(32, 54, 32, 1);
-$shadow_box_up: 0px 0px 3px rgba(32, 54, 32, 1);
+$color_main: rgba(41, 47, 70, 0.9);
+$color_box_up:  rgba(9, 16, 29, 0.6);
+$shadow_box_up: 0px 0px 3px rgba(9, 16, 29);
 $color_box_down: rgba(01, 260, 10, 0);
 
-$color_ram_bar_up:rgba(32, 54, 32, 1); 
-$color_ram_bar_down:rgba(32, 54, 32, 0.4); 
+$color_ram_bar_up:rgba(184, 184, 255, 1); 
+$color_ram_bar_down:rgba(184, 184, 255, 0.4); 
 
 //////////////////////////////
 ////    container_box     ////
@@ -28,62 +28,32 @@ $color_ram_bar_down:rgba(32, 54, 32, 0.4);
   background-color: $color_main;
   padding: 3px;
   border-radius: 3px;
-  box-shadow: 0px 0px 3px rgba(32, 54, 32, 1);
+  box-shadow: 0px 0px 3px rgba(41, 47, 70, 1);
 }
-
-.box-end-left{
-  background-color: $color_box_down;
-  padding: 0px;
-  border-radius: 50px;
-  min-width: 257px;
-}
-
-.box-end-right{
-  background-color: $color_box_down;
-  padding: 0px;
-  border-radius: 50px;
-  min-width: 323px;
-}
-
 
 ////-------box-up
-
-.box-battery{
-  background-color: $color_box_up; 
-  padding: 5px;
-  border-radius: 2px;
-  box-shadow: $shadow_box_up;
-  min-width: 60px;
-}
 
 .box-cpu{
   background-color: $color_box_up; 
   padding: 5px;
-  border-radius: 100px;
+  border-radius: 2px;
   box-shadow: $shadow_box_up;
-  min-width: 130px;
+  min-width: 140px;
 }
 
 .box-day{
   background-color: $color_box_up; 
   padding: 5px;
-  border-radius: 100px;
+  border-radius: 2px;
   box-shadow: $shadow_box_up;
   min-width: 90px;
 }
 
-.box-adjutant{
-  background-color: $color_box_up; 
-  padding: 5px;
-  border-radius: 100px;
-  box-shadow: $shadow_box_up;
-  // min-width: 90px;
-}
 
 .box-icon-calendar{
   background-color: $color_box_up; 
   padding: 5px 5px 5px 5px;
-  border-radius: 100px;
+  border-radius: 5px;
   box-shadow: $shadow_box_up;
   // min-width: 15px;
 }
@@ -94,7 +64,7 @@ $color_ram_bar_down:rgba(32, 54, 32, 0.4);
   background-color: $color_box_down;
   padding: 5px;
   border-radius: 100px;
-  min-width: 55px;
+  min-width: 80px;
 }
 
 .box-ram-bar{
@@ -111,20 +81,12 @@ $color_ram_bar_down:rgba(32, 54, 32, 0.4);
   min-width: 110px;
 }
 
-.box-clock{
+.box-work{
   background-color: $color_box_down;
   padding: 5px;
   border-radius: 100px;
-  min-width: 60px;
+  min-width: 150px;
 }
-
-.box-clock-bar{
-  background-color: $color_box_down;
-  padding: 0px;
-  border-radius: 100px;
-  min-width: 30px;
-}
-
 
 // //////////////////////////////////
 // ////      inf_labels          ////
@@ -140,39 +102,15 @@ $color_ram_bar_down:rgba(32, 54, 32, 0.4);
   color: #00CCDE;
 }
 
-.battery-label {
-  font-size: 13px;
-  color: $color_01;
-  font-family: "GohuFont 11 Nerd Font";
-}
-
 .ram-label {
   font-size: 13px;
   color: $color_02;
   font-family: "GohuFont 11 Nerd Font";
 }
 
-.ram-label-bar {
-  font-size: 14px;
-  color: $color_02;
-  font-family: "3270 Nerd Font";
-}
-
 .CPU-label {
   font-size: 13px;
   color: $color_01;
-  font-family: "GohuFont 11 Nerd Font";
-}
-
-.time-label{
-  font-size: 18px;
-  color: $color_02;
-  font-family: "HeavyData Nerd Font";
-}
-
-.clock-label-bar {
-  font-size: 14px;
-  color: $color_02;
   font-family: "GohuFont 11 Nerd Font";
 }
 
@@ -194,26 +132,9 @@ $color_ram_bar_down:rgba(32, 54, 32, 0.4);
   font-family: "3270 Nerd Font";
 }
 
-.adjutant{
-  font-size: 20px;
+.label-workspace{
+  font-size: 19px;
   color: $color_01;
-  font-family: "starcraftt";
+  font-family: "3270 Nerd Font";
 }
-
-//////////////////////////////////
-////      progress_bars       ////
-//////////////////////////////////
-
-.ram-bar  {
-  border-radius: 20px;
-  background: $color_ram_bar_down;
-  color: $color_ram_bar_up;
-}
-
-.clock-bar  {
-  border-radius: 20px;
-  background: $color_ram_bar_down;
-  color: $color_ram_bar_up;
-}
-
 
