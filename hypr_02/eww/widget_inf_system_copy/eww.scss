@@ -1,6 +1,6 @@
 .widget_inf{
   background-color: rgba(29, 29, 29, 1);
-  padding: 0px;
+  padding: 10px;
 }
 
 //////////////////////////////
@@ -51,7 +51,7 @@ $color_ram_bar_down:rgba(32, 54, 32, 0.4);
 .box-battery{
   background-color: $color_box_up; 
   padding: 5px;
-  border-radius: 100px;
+  border-radius: 2px;
   box-shadow: $shadow_box_up;
   min-width: 60px;
 }
@@ -141,15 +141,15 @@ $color_ram_bar_down:rgba(32, 54, 32, 0.4);
 }
 
 .battery-label {
-  font-size: 14px;
+  font-size: 13px;
   color: $color_01;
-  font-family: "Inconsolata NF";
+  font-family: "GohuFont 11 Nerd Font";
 }
 
 .ram-label {
-  font-size: 14px;
+  font-size: 13px;
   color: $color_02;
-  font-family: "Inconsolata NF bold";
+  font-family: "GohuFont 11 Nerd Font";
 }
 
 .ram-label-bar {
@@ -159,33 +159,33 @@ $color_ram_bar_down:rgba(32, 54, 32, 0.4);
 }
 
 .CPU-label {
-  font-size: 14px;
+  font-size: 13px;
   color: $color_01;
-  font-family: "Inconsolata NF";
+  font-family: "GohuFont 11 Nerd Font";
 }
 
 .time-label{
-  font-size: 10px;
+  font-size: 18px;
   color: $color_02;
-  font-family: "frank";
+  font-family: "HeavyData Nerd Font";
 }
 
 .clock-label-bar {
   font-size: 14px;
   color: $color_02;
-  font-family: "Inconsolata NF";
+  font-family: "GohuFont 11 Nerd Font";
 }
 
 .day-label{
-  font-size: 10px;
+  font-size: 15px;
   color: $color_01;
-  font-family: "frank";
+  font-family: "HeavyData Nerd Font";
 }
 
 .calendar-label{
-  font-size: 10px;
+  font-size: 18px;
   color: $color_02;
-  font-family: "frank";
+  font-family: "HeavyData Nerd Font";
 }
 
 .icon-label-calendar{

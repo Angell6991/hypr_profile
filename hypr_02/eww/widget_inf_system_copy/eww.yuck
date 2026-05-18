@@ -18,7 +18,7 @@
                 :hexpand "true"
                 (label
                     :class "CPU-label"
-                    :text "󰻠 ${round(EWW_CPU.avg, 0)}% | 󱠇 ${EWW_TEMPS.CORETEMP_CORE_0}°C"
+                    :text "󰻠  ${round(EWW_CPU.avg, 0)} % || 󱠇  ${EWW_TEMPS.CORETEMP_CORE_0} °c"
                 )
             )
         )
@@ -55,7 +55,7 @@
         :space-evenly "false"
         (label
             :class "ram-label" 
-            :text "${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} GB"
+            :text "${round(EWW_RAM.used_mem / (1024 * 1024 * 1024), 1)} gb"
         )
     )
 )
@@ -75,7 +75,7 @@
                     EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' : 
                     EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃': 
                     EWW_BATTERY['BAT0'].status
-                    } ${EWW_BATTERY['BAT0'].capacity}%"
+                    } ${EWW_BATTERY['BAT0'].capacity} %"
             )
         )
     )
@@ -91,7 +91,7 @@
         :halign "center"
         :spacing "0"
         (BATTERY_INF)
-        (RAM_BAR)
+        ;;(RAM_BAR)
         (RAM_INF)
         (CPU_TEMP_INF)
     )
@@ -126,7 +126,7 @@
             :hexpand "true"
             (label
                 :class "day-label"
-                :text "${formattime(EWW_TIME, '%a | %b')}"
+                :text "${formattime(EWW_TIME, '%a - %b')}"
             )
         )
     )
@@ -141,7 +141,7 @@
             :hexpand "true"
             (label
                 :class "calendar-label"
-                :text "${formattime(EWW_TIME, '%d | %m | %Y')}"
+                :text "${formattime(EWW_TIME, '%d - %m - %Y')}"
             )
         )
     )
@@ -257,9 +257,9 @@
         :space-evenly "false"
         :halign "center"
         :spacing "0"
-        (CLOCK_BAR)
+        ;;(CLOCK_BAR)
         (CLOCK)
-        (ADJUTANT)
+        ;;(ADJUTANT)
     )
 )
 

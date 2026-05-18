@@ -18,6 +18,9 @@ local initial   =   {
     -- "hyprpm reload &",
 
     ----------------------iniciar_eww-----------------------
+    "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_clock daemon &",
+    "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_clock open widget_clock_inf &",
+
     -- "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system daemon &",
     -- "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system open widget_inf &",
 

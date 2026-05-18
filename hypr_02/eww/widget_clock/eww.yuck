@@ -1,0 +1,92 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;---------------def_widgets---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;----------------Info_system--------------------;;
+(defwidget BATTERY_INF []
+    (box
+        :class "box-battery"
+        :space-evenly "false"
+        :halign "center"
+        (box
+            :hexpand "true"
+            (label
+                :class "battery-label"
+                :text "${
+                    EWW_BATTERY['BAT0'].status == 'Charging' ? '󰂄' : 
+                    EWW_BATTERY['BAT0'].status == 'Discharging' ? '󰂀' : 
+                    EWW_BATTERY['BAT0'].status == 'Full' ? '󱈑' : 
+                    EWW_BATTERY['BAT0'].status == 'Not charging' ? '󰂃': 
+                    EWW_BATTERY['BAT0'].status
+                    } ${EWW_BATTERY['BAT0'].capacity} %"
+            )
+        )
+    )
+)
+
+;;-----------------inf_hours--------------------;;
+(defwidget CLOCK []
+    (button
+        :onclick "gnome-clocks &" 
+        :class "glass_button"
+        :tooltip "Clock"
+        (box
+            :class "box-clock"
+            :space-evenly "false"
+            :halign "center"
+            (box
+                :hexpand "true"
+                (label
+                    :class "time-label"
+                    :text "${formattime(EWW_TIME, '%H : %M')}"
+                )
+            )
+        )
+    )
+)
+
+;;----------------------------------------------;;
+(defwidget CLOCK_INF []
+    (box
+        :class  "box-main"
+        :space-evenly "false"
+        :halign "center"
+        :spacing "5"
+        (BATTERY_INF)
+        (box
+            :orientation "v" 
+            :spacing "5"
+            (CLOCK)
+            ;;(CLOCK_BAR)
+            
+        )
+    )
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;-------------------def_var---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwindow widget_clock_inf
+    :stacking "fg"
+    :exclusive "false"
+    :monitor 0
+    :geometry 
+    (geometry
+        :x "0%"   
+        :y "0px"
+        :width "0%"
+        :height "0px"
+        :anchor "top left"
+    )
+    (box
+        :space-evenly "false"
+        :class "widget_inf"
+        :spacing "0"
+        (CLOCK_INF)
+    )
+)
+
+
