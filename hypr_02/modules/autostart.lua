@@ -24,6 +24,9 @@ local initial   =   {
     "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system daemon &",
     "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system open widget_inf &",
 
+    "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_gitf daemon &",
+    "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_gitf open skull-icon-glass &",
+
 }
 
 

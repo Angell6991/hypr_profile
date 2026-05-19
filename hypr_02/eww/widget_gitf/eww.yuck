@@ -1,0 +1,48 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;---------------def_widgets---------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(defwidget ICON-SKULL []
+    (button
+        :onclick "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_power_menu open bar-window &" 
+        :onrightclick "~/.config/hypr/eww/widget_gitf/scripts/IA_tgpt.sh &"
+        :class "glass_button"
+        :tooltip "Power menu | Info system"
+        (box
+            :class "gif-container_00"
+            (box 
+                :class "gif-container_01"
+                (image
+                    :path   "skull_img_small.png"
+                ) 
+            )
+        )
+    )
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;-----------------def_widget--------------------;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwindow skull-icon-glass
+    :monitor 0 
+    :class "bar-window"
+    :stacking "bg" 
+    :geometry 
+    (geometry 
+        :x "0%" 
+        :y "0px" 
+        :width "5%" 
+        :height "30px"
+        :anchor "top right"
+    )
+    (box
+        :orientation "v" 
+        :spacing "10"           ;;45
+        ;:space-evenly "false"   ;;espacio estre widget valor buleano: true ó false
+        (ICON-SKULL)
+    )
+)
+
