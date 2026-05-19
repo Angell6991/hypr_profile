@@ -11,9 +11,15 @@ local   workspace_type  =   {
 for i   = 1, #workspace_type     do
     hl.workspace_rule({ 
         workspace   =   workspace_type[i][1], 
-        layout      =   workspace_type[i][2],  
+        layout      =   workspace_type[i][2],
     })
 end
+
+-------- example float workspace number 3 --------------
+-- hl.window_rule({
+--     match = { workspace = "3" },
+--     float = true
+-- })
 
 
 --------------------------------------------------------
