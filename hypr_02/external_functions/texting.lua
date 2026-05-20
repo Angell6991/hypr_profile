@@ -1,4 +1,4 @@
-----------lansar una notificacion ---------
+---------------lansar una notificacion -----------------
 hl.bind("SUPER + X", function()
     hl.notification.create({
         text        =   "Hola Mundo",
@@ -8,7 +8,7 @@ hl.bind("SUPER + X", function()
     })
 end)
 
---------- notify new window open ----------
+--------------- notify new window open -----------------
 hl.on("window.open", function(w)
     local ws = hl.get_active_workspace()
 
