@@ -79,12 +79,12 @@ hl.bind(mod_01 .. " + BackSpace ", hl.dsp.window.close())
 
 -----------------------------------------------------------
 ------------- Mover_el_foco_de_las_ventanas ---------------
--------------------- Mover_ventanas -----------------------
 -----------------------------------------------------------
 local   dir   =   { "left", "right", "up", "down" }
 
 for i   =   1,  #dir    do
-    
+   
+    -- mover el foco de la ventana
     hl.bind(mod_01 .. "+" .. dir[i], function ()
         local w = hl.get_active_window()    -- get_active_window devuelve la ventana actual
         
@@ -103,22 +103,59 @@ for i   =   1,  #dir    do
         end
     end)
     
-    hl.bind(mod_01 .. "+" .. mod_03 .. "+" .. dir[i], hl.dsp.window.move({ direction = dir[i] }))
+end
+
+
+-----------------------------------------------------------
+------- Mover_ventanas_y_Redimensionar_ventanas -----------
+-----------------------------------------------------------
+local   setting_window   =   {
+        { "right",  { x = 50,   y = 0,   relative = true } },
+        { "left",   { x = -50,  y = 0,   relative = true } },
+        { "up",     { x = 0,    y = -50, relative = true } },
+        { "down",   { x = 0,    y = 50,  relative = true } },
+    }
+
+for i = 1, #setting_window do
+    
+    -- Redimensionar_ventanas
+    hl.bind(
+        mod_02 .. "+" .. mod_03  .. "+" .. setting_window[i][1], 
+        hl.dsp.window.resize( setting_window[i][2] )
+    )
+
+    -- Mover_ventanas
+    hl.bind(mod_01 .. "+" .. mod_03 .. "+" .. setting_window[i][1], function ()
+        local w = hl.get_active_window()    -- get_active_window devuelve la ventana actual
+        
+        -- Evita errores cuando no hay ventana activa
+        if not w then
+            return
+        end
+       
+        local state = w.floating and "FLOAT" or "TILING"  -- revisa si es float o tiling
+        if  state   ==  "FLOAT" then
+            hl.dispatch(hl.dsp.window.move( setting_window[i][2] ))
+        else
+            hl.dispatch(hl.dsp.window.move({ direction = setting_window[i][1] }))
+        end
+
+    end )
 
 end
 
 
 -----------------------------------------------------------
------ Submap_Mover_ventanas_Redimensionar_ventanas --------
+------------------ Submap_setting -------------------|------
 -----------------------------------------------------------
-hl.bind(mod_01 .. "+ r", function ()
+hl.bind(mod_01 .. "+ s", function ()
     
     -- activa el submap
-    hl.dispatch(hl.dsp.submap("float_setting"))
+    hl.dispatch(hl.dsp.submap("setting"))
     
     -- notifica init submap
     hl.notification.create({
-        text        =   "  float setting",
+        text        =   "  setting",
         duration    =   1500,   -- 1.5 segundo
         color       =   "rgb(226,226,226)",
         font_size   =   18,
@@ -127,31 +164,8 @@ hl.bind(mod_01 .. "+ r", function ()
 end)
 
 ----------------------def submap --------------------------
-hl.define_submap("float_setting", function()
+hl.define_submap("setting", function()
   
-    -- def config submap
-    local   setting_window   =   {
-        { "right",  { x = 50,   y = 0,   relative = true } },
-        { "left",   { x = -50,  y = 0,   relative = true } },
-        { "up",     { x = 0,    y = -50, relative = true } },
-        { "down",   { x = 0,    y = 50,  relative = true } },
-    }
-
-    for i   =   1,  #setting_window do
-
-        -- Redimensionar_ventanas
-        hl.bind(
-            mod_01 .. "+" .. setting_window[i][1], 
-            hl.dsp.window.resize( setting_window[i][2] )
-        )
-        -- Mover_ventanas
-        hl.bind(
-            mod_01 .. "+" .. mod_03 .. "+" .. setting_window[i][1], 
-            hl.dsp.window.move( setting_window[i][2] )
-        )
-
-    end
-
     -- cambiar wallpaper
     hl.bind("w", hl.dsp.exec_cmd("~/.config/hypr/random_imagen.sh"))
 
@@ -163,7 +177,7 @@ hl.define_submap("float_setting", function()
         
         -- notifica exit submap
         hl.notification.create({
-            text        =   "  setting exit",
+            text        =   "  exit",
             duration    =   1500,   -- 1.5 segundo
             color       =   "rgb(226,226,226)",
             font_size   =   18,
