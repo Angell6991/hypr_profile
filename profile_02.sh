@@ -20,6 +20,10 @@ cp      -r      hypr_02/* ~/.config/hypr
 ~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system daemon &
 ~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_inf_system open widget_inf &
 
+~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_gitf daemon &
+~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_gitf open skull-icon-glass &
+
+
 
 cp  starship_02.toml    ~/.config/starship.toml
 cp  fuzzel_02.ini       ~/.config/fuzzel/fuzzel.ini
