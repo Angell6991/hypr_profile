@@ -87,6 +87,12 @@ for i   =   1,  #dir    do
     
     hl.bind(mod_01 .. "+" .. dir[i], function ()
         local w = hl.get_active_window()    -- get_active_window devuelve la ventana actual
+        
+        -- Evita errores cuando no hay ventana activa
+        if not w then
+            return
+        end
+
         local state = w.floating and "FLOAT" or "TILING"  -- revisa si es float o tiling
 
         if  state   ==  "FLOAT" then
@@ -206,6 +212,12 @@ hl.bind(mod_01 .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 ------------- alternar foco entre float an tiling ---------
 hl.bind(mod_01 .. "+ tab", function ()
     local w = hl.get_active_window()    -- get_active_window devuelve la ventana actual
+    
+    -- Evita errores cuando no hay ventana activa
+    if not w then
+        return
+    end
+
     local state = w.floating and "FLOAT" or "TILING"  -- revisa si es float o tiling
 
     if state    ==  "FLOAT" then
