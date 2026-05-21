@@ -84,8 +84,21 @@ hl.bind(mod_01 .. " + BackSpace ", hl.dsp.window.close())
 local   dir   =   { "left", "right", "up", "down" }
 
 for i   =   1,  #dir    do
-    hl.bind(mod_01 .. "+" .. dir[i], hl.dsp.focus({ direction = dir[i] }))
+    
+    hl.bind(mod_01 .. "+" .. dir[i], function ()
+        local w = hl.get_active_window()    -- get_active_window devuelve la ventana actual
+        local state = w.floating and "FLOAT" or "TILING"  -- revisa si es float o tiling
+
+        if  state   ==  "FLOAT" then
+            hl.dispatch(hl.dsp.focus({ direction = dir[i] }))
+            hl.dispatch(hl.dsp.window.alter_zorder({ mode = "top" }))
+        else
+            hl.dispatch(hl.dsp.focus({ direction = dir[i] }))
+        end
+    end)
+    
     hl.bind(mod_01 .. "+" .. mod_03 .. "+" .. dir[i], hl.dsp.window.move({ direction = dir[i] }))
+
 end
 
 
@@ -190,6 +203,18 @@ hl.bind(mod_01 .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mod_01 .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mod_01 .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind(mod_01 .. "+ tab", hl.dsp.window.cycle_next()) 
+------------- alternar foco entre float an tiling ---------
+hl.bind(mod_01 .. "+ tab", function ()
+    local w = hl.get_active_window()    -- get_active_window devuelve la ventana actual
+    local state = w.floating and "FLOAT" or "TILING"  -- revisa si es float o tiling
+
+    if state    ==  "FLOAT" then
+        hl.dispatch(hl.dsp.window.cycle_next({tiled=true}))
+    elseif  state ==    "TILING"    then
+        hl.dispatch(hl.dsp.window.cycle_next({floating=true}))
+    else
+        
+    end
+end)
 
 
