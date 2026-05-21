@@ -9,7 +9,7 @@ local   bind_simple =   {
 
     -------------------------apps------------------------------
     { "Return", "kitty" },
-    { "space", "fuzzel" },
+    { "space",  "fuzzel" },
 
     ------------------control_brillo_pantalla------------------
     { "f6", "~/.config/mako/scripts/brightness_01.sh" },
@@ -52,10 +52,10 @@ local bind_no_simple    =   {
 
 local bluetooth =   {
     -- install: sudo pacman -S wev
-    { "XF86AudioPlay", "~/.config/mako/scripts/pause_audio.sh" },
+    { "XF86AudioPlay",  "~/.config/mako/scripts/pause_audio.sh" },
     { "XF86AudioPause", "~/.config/mako/scripts/pause_audio.sh" },
-    { "XF86AudioNext", "hyprlock" },
-    { "XF86AudioPrev", "~/.config/mako/scripts/volume_03.sh" },
+    { "XF86AudioNext",  "hyprlock" },
+    { "XF86AudioPrev",  "~/.config/mako/scripts/volume_03.sh" },
 }
 
 for i   =   1,  #bind_simple    do
@@ -89,6 +89,72 @@ end
 
 
 -----------------------------------------------------------
+----- Submap_Mover_ventanas_Redimensionar_ventanas --------
+-----------------------------------------------------------
+hl.bind(mod_01 .. "+ r", function ()
+    
+    -- activa el submap
+    hl.dispatch(hl.dsp.submap("float_setting"))
+    
+    -- notifica init submap
+    hl.notification.create({
+        text        =   "  float setting",
+        duration    =   1500,   -- 1.5 segundo
+        color       =   "rgb(226,226,226)",
+        font_size   =   18,
+    })
+
+end)
+
+----------------------def submap --------------------------
+hl.define_submap("float_setting", function()
+  
+    -- def config submap
+    local   setting_window   =   {
+        { "right",  { x = 50,   y = 0,   relative = true } },
+        { "left",   { x = -50,  y = 0,   relative = true } },
+        { "up",     { x = 0,    y = -50, relative = true } },
+        { "down",   { x = 0,    y = 50,  relative = true } },
+    }
+
+    for i   =   1,  #setting_window do
+
+        -- Redimensionar_ventanas
+        hl.bind(
+            mod_01 .. "+" .. setting_window[i][1], 
+            hl.dsp.window.resize( setting_window[i][2] )
+        )
+        -- Mover_ventanas
+        hl.bind(
+            mod_01 .. "+" .. mod_03 .. "+" .. setting_window[i][1], 
+            hl.dsp.window.move( setting_window[i][2] )
+        )
+
+    end
+
+    -- cambiar wallpaper
+    hl.bind("w", hl.dsp.exec_cmd("~/.config/hypr/random_imagen.sh"))
+
+    -- salir manualmente
+    hl.bind("escape", function ()
+       
+        -- activar la salida del submap
+        hl.dispatch(hl.dsp.submap("reset"))
+        
+        -- notifica exit submap
+        hl.notification.create({
+            text        =   "  setting exit",
+            duration    =   1500,   -- 1.5 segundo
+            color       =   "rgb(226,226,226)",
+            font_size   =   18,
+        })
+
+    end) 
+
+end)
+
+
+-----------------------------------------------------------
 -------------- Moverse_entre_los_workspaces ---------------
 -------------- Mover_ventana_a_un_workspace ---------------
 ------ Mover_ventana_a_un_workspace_sin_cambiar_foco ------
@@ -113,18 +179,6 @@ for i   =   1,  #focus_workspaces    do
         mod_01 .. "+" .. mod_02 .. "+" .. focus_workspaces[i][1], 
         hl.dsp.focus({ workspace = focus_workspaces[i][2] })
     )
-end
-
----------------Redimensionar_ventanas----------------------
-local   resize_window   =   {
-    { "l", { x = 50, y = 0, relative = true  } },
-    { "j", { x = -50, y = 0, relative = true } },
-    { "i", { x = 0, y = -50, relative = true } },
-    { "k", { x = 0, y = 50, relative = true  } },
-}
-
-for i   =   1,  #resize_window do
-    hl.bind(mod_01 .. "+" .. resize_window[i][1], hl.dsp.window.resize( resize_window[i][2] )) 
 end
 
 -----------mover_entre_workspaces_con_mause_touchpad-------

@@ -27,3 +27,7 @@ for i   =   1,  #dir_modules    do
 end
 
 
+--------------- notify new window open -----------------
+-- require("external_functions.texting")
+
+
