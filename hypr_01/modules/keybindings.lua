@@ -109,6 +109,8 @@ end
 -----------------------------------------------------------
 ------- Mover_ventanas_y_Redimensionar_ventanas -----------
 -----------------------------------------------------------
+local    dir_resize  =   { "l", "j", "i", "k" }
+
 local   setting_window   =   {
         { "right",  { x = 50,   y = 0,   relative = true } },
         { "left",   { x = -50,  y = 0,   relative = true } },
@@ -120,7 +122,7 @@ for i = 1, #setting_window do
     
     -- Redimensionar_ventanas
     hl.bind(
-        mod_02 .. "+" .. mod_03  .. "+" .. setting_window[i][1], 
+        mod_01 .. "+" .. dir_resize[i], 
         hl.dsp.window.resize( setting_window[i][2] )
     )
 
