@@ -71,6 +71,7 @@ for i   =   1,  #bluetooth    do
 end
 
 ----------------cambio_entre_tipo_de_ventanas--------------
+hl.bind(mod_01 .. "+" .. mod_02  ..  " + f ", hl.dsp.window.fullscreen(({ action = "toggle" })))
 hl.bind(mod_01 .. " + f ", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod_01 .. " + p ", hl.dsp.window.pseudo())
 hl.bind(mod_01 .. " + BackSpace ", hl.dsp.window.close())
