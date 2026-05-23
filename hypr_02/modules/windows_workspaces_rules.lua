@@ -1,19 +1,64 @@
 --------------------------------------------------------
 --------------------  WORKSPACES -----------------------
 --------------------------------------------------------
-local   workspace_type  =   {
-    { "1", "scrolling" },
-    { "2", "master" },
-    { "3", "dwindle" },
-    { "4", "scrolling" },
-}
 
-for i   = 1, #workspace_type     do
-    hl.workspace_rule({ 
-        workspace   =   workspace_type[i][1], 
-        layout      =   workspace_type[i][2],
-    })
+-------- function ocuppy name array monitors -----------
+local function get_monitor_names()
+    local monitors = hl.get_monitors()
+    local names = {}
+
+    for _, monitor in ipairs(monitors) do
+        table.insert(names, monitor.name)
+    end
+
+    return names
 end
+
+-- def array name monitors
+local names = get_monitor_names()
+
+
+--------------------------------------------------------
+------------ dynamic monitor configuration -------------
+--------------------------------------------------------
+
+-- config 1 monitor
+if  #names == 1  then
+    
+    local   workspace_type  =   {
+        { "1", "scrolling" },
+        { "2", "master" },
+        { "3", "dwindle" },
+        { "4", "scrolling" },
+    }
+
+    for i   = 1, #workspace_type     do
+        hl.workspace_rule({ 
+            workspace   =   workspace_type[i][1], 
+            layout      =   workspace_type[i][2],
+        })
+    end
+
+-- config 2 monitors
+elseif  #names ==   2 then
+
+    local   workspace_type  =   {
+        { "1", "scrolling", names[1] },
+        { "2", "master",    names[1] },
+        { "3", "dwindle",   names[2] },
+        { "4", "scrolling", names[2] },
+    }
+
+    for i   = 1, #workspace_type     do
+        hl.workspace_rule({ 
+            workspace   =   workspace_type[i][1], 
+            layout      =   workspace_type[i][2],
+            monitor     =   workspace_type[i][3],
+        })
+    end
+
+end
+
 
 -------- example float workspace number 3 --------------
 -- hl.window_rule({
