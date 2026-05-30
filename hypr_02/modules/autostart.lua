@@ -27,6 +27,7 @@ local initial   =   {
     "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_gitf daemon &",
     "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_gitf open skull-icon-glass &",
 
+    "~/.config/mako/scripts/mode_cover_laptop.sh",
 }
 
 

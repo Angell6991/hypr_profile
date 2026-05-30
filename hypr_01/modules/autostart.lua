@@ -24,6 +24,7 @@ local initial   =   {
     "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_workspace daemon &",
     "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_workspace open widget_workspace &",
 
+    "~/.config/mako/scripts/mode_cover_laptop.sh",
 }
 
 

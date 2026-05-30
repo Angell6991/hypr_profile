@@ -8,7 +8,7 @@
         :class  "box-main"
         (label
             :class  "icon"
-            :text "j"
+            :text "󰶐 " 
         ) 
     )
 )
@@ -18,13 +18,13 @@
 ;;-----------------def_widget--------------------;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defwindow lock-icon-glass
+(defwindow icon-cover
     :monitor 0 
     :class "bar-window"
-    :stacking "fg" 
+    :stacking "bg" 
     :geometry 
     (geometry 
-        :x "0.5%" 
+        :x "6.5%" 
         :y "5px" 
         :width "5%" 
         :height "30px"
