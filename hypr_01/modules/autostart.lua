@@ -12,7 +12,7 @@ local initial   =   {
     "sleep 4 && ~/.config/hypr/random_imagen.sh &",
     "hypridle &",                                           -- iniciando el control para himbernacion del sistema
     "dunst &",                                              -- iniciando el gestor de notificaciones
-    "wlsunset -S 6:00 -s 19:00 -t 5500 -T 6500 -d 2 &",     --inicio de luz "nocturna"
+    "wlsunset -S 6:00 -s 19:00 -t 5500 -T 6500 -d 2 &",     -- inicio de luz "nocturna"
     "udiskie &",                                            -- iniciando el montador de usb
     "kanata -c ~/.config/kanata.kbd & disown &", 
     -- "hyprpm reload &",
@@ -25,6 +25,12 @@ local initial   =   {
     "~/.eww/target/release/eww -c ~/.config/hypr/eww/widget_workspace open widget_workspace &",
 
     "~/.config/mako/scripts/mode_cover_laptop.sh",
+
+    ---------------------porta_papeles----------------------
+    "wl-paste --watch cliphist store &",
+    "wl-paste --type text --watch cliphist store &",
+    "wl-paste --type image --watch cliphist store &",
+    "cliphist wipe",
 }
 
 
