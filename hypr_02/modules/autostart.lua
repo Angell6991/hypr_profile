@@ -34,6 +34,8 @@ local initial   =   {
     "wl-paste --type text --watch cliphist store &",
     "wl-paste --type image --watch cliphist store &",
     "cliphist wipe",
+
+    "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
 }
 
 
