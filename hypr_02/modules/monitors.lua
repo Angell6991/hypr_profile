@@ -29,7 +29,7 @@ if  #names == 1  then
         output   = names[1],
         mode     = "preferred",
         position = "auto",
-        scale    = "auto",
+        scale    = "1",
     })
 
 -- config 2 monitors
@@ -37,7 +37,8 @@ elseif  #names ==   2 then
 
     hl.monitor({
         output   = names[1],
-        mode     = "1366x768@60",
+        mode     = "preferred",
+        -- mode     = "1366x768@60",
         position = "0x0",
         scale    = "1",
     })
@@ -45,9 +46,10 @@ elseif  #names ==   2 then
     hl.monitor({
         output   = names[2],
         mode     = "preferred",
-        position = "0x1366",
+        position = "auto",
+        -- position = "0x1366",
         scale    = "1",
-        -- mirror   = names[1],
+        mirror   = names[1],
         -- transform = 1    -- rotar pantalla
     })
 
