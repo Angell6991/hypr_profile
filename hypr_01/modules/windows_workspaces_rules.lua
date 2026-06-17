@@ -108,7 +108,7 @@ hl.layer_rule({
     blur = true,
     blur_popups = true,
     ignore_alpha = 0.2,
-    -- animation = "slide 10%",
+    animation = "popin 10%",
 })
 
 ------------------------ eww_widget ------------------------
