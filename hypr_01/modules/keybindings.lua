@@ -245,4 +245,21 @@ hl.bind(mod_01 .. "+ tab", function ()
     end
 end)
 
+-------------- alternar layouts en workspace -----------
+hl.bind(mod_01 .. " + w", function()
+    local   layouts   =   { "scrolling", "master", "dwindle" }
+    local   layout    =   hl.get_active_workspace().tiled_layout    -- devuelve el layout del workspace actual
+    local   id        =   hl.get_active_workspace().id              -- devuelve el number del workspace actual
+
+    for i   =   1,  #layouts do
+        if layout   ==  layouts[i] then
+            hl.workspace_rule({ 
+                workspace   =   id, 
+                layout      =   layouts[(i % #layouts) + 1],
+            })
+        end
+    end
+
+end)
+
 

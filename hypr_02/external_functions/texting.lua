@@ -33,4 +33,19 @@ hl.bind("SUPER + a", function()
     })
 end)
 
+---------------------- info layout ---------------------
+hl.bind("SUPER + i", function()
+    local inf_layout = hl.get_active_workspace().tiled_layout    -- devuelve el layout del workspace actual
+    -- local inf_layout = hl.get_active_workspace().id              -- devuelve el number del workspace actual
+
+    hl.notification.create({
+        text        = inf_layout,
+        duration    = 5000,
+        color       = "rgb(226,226,226)",
+        font_size   = 18,
+    })
+end)
+
+--------------------------------------------------------
+
 
