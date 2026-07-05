@@ -29,12 +29,14 @@ hl.window_rule({ match = { class = "org.pwmt.zathura" }, workspace = "2" })
 
 ----------------------workspace_3-----------------------
 local   list_workspace_3 =   {
-    "org.matplotlib.Matplotlib3",
-    "Matplotlib",
-    "Tk",
+    -- "org.matplotlib.Matplotlib3",
+    -- "Matplotlib",
+    -- "Tk",
+    -- "python3.12",
+    -- "flet",
+    -- "python3.13",
     "eog",
     "org.gnome.eog",
-    "python3.12",
     "blueman-manager",
     "blueman-services",
     "blueman-sendto",
@@ -45,8 +47,6 @@ local   list_workspace_3 =   {
     "org.telegram.desktop",
     "com.usebottles.bottles",
     "io.bassi.Amberol",
-    "flet",
-    "python3.13",
     "io.github.seadve.Mousai",
     "libreoffice-startcenter",
     "localsend",
